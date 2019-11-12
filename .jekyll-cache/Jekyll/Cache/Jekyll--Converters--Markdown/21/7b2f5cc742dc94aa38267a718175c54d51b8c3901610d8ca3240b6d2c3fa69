@@ -1,0 +1,146 @@
+I"Ô'<ul id="markdown-toc">
+  <li><a href="#how-to-install-kubernetes-by-kubeadm" id="markdown-toc-how-to-install-kubernetes-by-kubeadm">How to install Kubernetes by kubeadm</a>    <ul>
+      <li><a href="#installing-kubeadm-kubelet-kubectl" id="markdown-toc-installing-kubeadm-kubelet-kubectl">Installing kubeadm, kubelet, kubectl</a>        <ul>
+          <li><a href="#config-the-kubernetesrepo-and-install-kubelet-kubeadm-and-kubectl" id="markdown-toc-config-the-kubernetesrepo-and-install-kubelet-kubeadm-and-kubectl">Config the kubernetes.repo and install kubelet, kubeadm and kubectl</a></li>
+          <li><a href="#configure-cgroup-driver-used-by-kubelet-on-master-node" id="markdown-toc-configure-cgroup-driver-used-by-kubelet-on-master-node">Configure cgroup driver used by kubelet on Master Node</a></li>
+          <li><a href="#restart-kubelet" id="markdown-toc-restart-kubelet">restart kubelet:</a></li>
+        </ul>
+      </li>
+      <li><a href="#config-master-node-by-kubeadm" id="markdown-toc-config-master-node-by-kubeadm">Config master node by kubeadm</a>        <ul>
+          <li><a href="#update-kubeadm-to-latest-version" id="markdown-toc-update-kubeadm-to-latest-version">Update kubeadm to latest version</a></li>
+          <li><a href="#initializing-your-master" id="markdown-toc-initializing-your-master">Initializing your master</a></li>
+          <li><a href="#to-make-kubectl-work-for-your-non-root-user-you-might-want-to-run-these-commands-which-is-also-a-part-of-the-kubeadm-init-output" id="markdown-toc-to-make-kubectl-work-for-your-non-root-user-you-might-want-to-run-these-commands-which-is-also-a-part-of-the-kubeadm-init-output">To make kubectl work for your non-root user, you might want to run these commands (which is also a part of the kubeadm init output):</a></li>
+          <li><a href="#installing-a-pod-network-kubectl-apply--f-" id="markdown-toc-installing-a-pod-network-kubectl-apply--f-">Installing a pod network kubectl apply -f <add-on.yaml></add-on.yaml></a></li>
+          <li><a href="#verify-the-install-result" id="markdown-toc-verify-the-install-result">Verify the install result</a></li>
+          <li><a href="#master-isolation" id="markdown-toc-master-isolation">Master Isolation</a></li>
+          <li><a href="#shutdown-the-firewalld" id="markdown-toc-shutdown-the-firewalld">Shutdown the firewalld</a></li>
+        </ul>
+      </li>
+      <li><a href="#config-worker-node" id="markdown-toc-config-worker-node">Config worker node</a>        <ul>
+          <li><a href="#joining-your-nodes" id="markdown-toc-joining-your-nodes">Joining your nodes</a>            <ul>
+              <li><a href="#find-the-token-and-hash-if-not-noted-via-kubeadm-init" id="markdown-toc-find-the-token-and-hash-if-not-noted-via-kubeadm-init">Find the token and hash if not noted via kubeadm init</a></li>
+            </ul>
+          </li>
+          <li><a href="#wait-several-minutes-then-verify-the-result" id="markdown-toc-wait-several-minutes-then-verify-the-result">Wait several minutes then verify the result</a></li>
+          <li><a href="#deploy-a-service-and-verify-the-result" id="markdown-toc-deploy-a-service-and-verify-the-result">Deploy a service and verify the result</a></li>
+        </ul>
+      </li>
+      <li><a href="#backout---reset" id="markdown-toc-backout---reset">Backout - RESET</a></li>
+      <li><a href="#references" id="markdown-toc-references">References</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="how-to-install-kubernetes-by-kubeadm">How to install Kubernetes by kubeadm</h1>
+
+<h2 id="installing-kubeadm-kubelet-kubectl">Installing kubeadm, kubelet, kubectl</h2>
+
+<h3 id="config-the-kubernetesrepo-and-install-kubelet-kubeadm-and-kubectl">Config the kubernetes.repo and install kubelet, kubeadm and kubectl</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> &gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-</span><span class="se">\$</span><span class="sh">basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+</span><span class="no">EOF
+</span>setenforce 0
+yum <span class="nb">install</span> <span class="nt">-y</span> kubelet kubeadm kubectl
+systemctl <span class="nb">enable </span>kubelet <span class="o">&amp;&amp;</span> systemctl start kubelet
+</code></pre></div></div>
+
+<h3 id="configure-cgroup-driver-used-by-kubelet-on-master-node">Configure cgroup driver used by kubelet on Master Node</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker info | <span class="nb">grep</span> <span class="nt">-i</span> cgroup
+<span class="nb">cat</span> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</code></p>
+
+<h3 id="restart-kubelet">restart kubelet:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl daemon-reload
+systemctl restart kubelet
+</code></pre></div></div>
+
+<h2 id="config-master-node-by-kubeadm">Config master node by kubeadm</h2>
+
+<h3 id="update-kubeadm-to-latest-version">Update kubeadm to latest version</h3>
+
+<p><code class="highlighter-rouge">apt-get update &amp;&amp; apt-get upgrade</code> or <code class="highlighter-rouge">yum update to get the latest version of kubeadm.</code></p>
+
+<h3 id="initializing-your-master">Initializing your master</h3>
+
+<p><code class="highlighter-rouge">kubeadm init</code> or <code class="highlighter-rouge">sudo kubeadm init --pod-network-cidr=192.168.0.0/16</code></p>
+
+<h3 id="to-make-kubectl-work-for-your-non-root-user-you-might-want-to-run-these-commands-which-is-also-a-part-of-the-kubeadm-init-output">To make kubectl work for your non-root user, you might want to run these commands (which is also a part of the kubeadm init output):</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$HOME</span>/.kube
+<span class="nb">sudo cp</span> <span class="nt">-i</span> /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+<span class="nb">sudo chown</span> <span class="si">$(</span><span class="nb">id</span> <span class="nt">-u</span><span class="si">)</span>:<span class="si">$(</span><span class="nb">id</span> <span class="nt">-g</span><span class="si">)</span> <span class="nv">$HOME</span>/.kube/config
+</code></pre></div></div>
+
+<p>Alternatively, if you are the root user, you could run this:</p>
+
+<p><code class="highlighter-rouge">export KUBECONFIG=/etc/kubernetes/admin.conf</code></p>
+
+<h3 id="installing-a-pod-network-kubectl-apply--f-">Installing a pod network kubectl apply -f <add-on.yaml></add-on.yaml></h3>
+
+<p><code class="highlighter-rouge">kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico.yaml</code></p>
+
+<p><a href="https://docs.projectcalico.org/v3.1/getting-started/kubernetes/">https://docs.projectcalico.org/v3.1/getting-started/kubernetes/</a></p>
+
+<h3 id="verify-the-install-result">Verify the install result</h3>
+
+<p>Once a pod network has been installed, you can confirm that it is working by checking that the kube-dns pod is Running in the output of <code class="highlighter-rouge">kubectl get pods --all-namespaces</code>. And once the kube-dns pod is up and running, you can continue by joining your nodes.</p>
+
+<h3 id="master-isolation">Master Isolation</h3>
+
+<p>By default, your cluster will not schedule pods on the master for security reasons. If you want to be able to schedule pods on the master, e.g. for a single-machine Kubernetes cluster for development, run:</p>
+
+<p><code class="highlighter-rouge">kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
+
+<h3 id="shutdown-the-firewalld">Shutdown the firewalld</h3>
+
+<p><code class="highlighter-rouge">systemctl stop firewalld</code></p>
+
+<p><code class="highlighter-rouge">systemctl disable firewalld</code></p>
+
+<h2 id="config-worker-node">Config worker node</h2>
+
+<h3 id="joining-your-nodes">Joining your nodes</h3>
+
+<p><code class="highlighter-rouge">kubeadm join --token &lt;token&gt; &lt;master-ip&gt;:&lt;master-port&gt; --discovery-token-ca-cert-hash sha256:&lt;hash&gt;</code></p>
+
+<p><code class="highlighter-rouge">kubeadm join x.x.x.x:6443 --token xxxxx --discovery-token-ca-cert-hash sha256:xxxxxxx</code></p>
+
+<h4 id="find-the-token-and-hash-if-not-noted-via-kubeadm-init">Find the token and hash if not noted via kubeadm init</h4>
+
+<p><code class="highlighter-rouge">kubeadm token list</code></p>
+
+<p><code class="highlighter-rouge">openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'</code></p>
+
+<h3 id="wait-several-minutes-then-verify-the-result">Wait several minutes then verify the result</h3>
+
+<p><code class="highlighter-rouge">kubectl get nodes</code></p>
+
+<h3 id="deploy-a-service-and-verify-the-result">Deploy a service and verify the result</h3>
+
+<p><a href="https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/">https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/</a></p>
+
+<h2 id="backout---reset">Backout - RESET</h2>
+
+<p><code class="highlighter-rouge">kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets</code></p>
+
+<p><code class="highlighter-rouge">kubectl delete node &lt;node name&gt;</code></p>
+
+<p><code class="highlighter-rouge">kubeadm reset</code></p>
+
+<h2 id="references">References</h2>
+
+<p><a href="http://docs.kubernetes.org.cn/">http://docs.kubernetes.org.cn/</a></p>
+
+<p><a href="https://kubernetes.io/docs/setup/">https://kubernetes.io/docs/setup/</a></p>
+:ET

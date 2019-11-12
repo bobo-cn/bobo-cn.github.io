@@ -1,0 +1,58 @@
+I"<ul id="markdown-toc">
+  <li><a href="#install-docker-112" id="markdown-toc-install-docker-112">Install docker 1.12</a>    <ul>
+      <li><a href="#add-the-docker-public-key-for-cs-docker-engine-packages" id="markdown-toc-add-the-docker-public-key-for-cs-docker-engine-packages">Add the Docker public key for CS Docker Engine packages:</a></li>
+      <li><a href="#install-yum-utils-if-necessary" id="markdown-toc-install-yum-utils-if-necessary">Install yum-utils if necessary:</a></li>
+      <li><a href="#add-the-docker-repository" id="markdown-toc-add-the-docker-repository">Add the Docker repository:</a></li>
+      <li><a href="#install-docker-cs-engine" id="markdown-toc-install-docker-cs-engine">Install Docker CS Engine:</a>        <ul>
+          <li><a href="#list-the-available-versions" id="markdown-toc-list-the-available-versions">List the available versions:</a></li>
+          <li><a href="#install-a-specific-version-by-adding-the-version-after-docker-engine-separated-by-a-hyphen--" id="markdown-toc-install-a-specific-version-by-adding-the-version-after-docker-engine-separated-by-a-hyphen--">Install a specific version by adding the version after docker-engine, separated by a hyphen (-)</a></li>
+        </ul>
+      </li>
+      <li><a href="#configure-the-docker-daemon-to-start-automatically-when-the-system-starts-and-start-it-now" id="markdown-toc-configure-the-docker-daemon-to-start-automatically-when-the-system-starts-and-start-it-now">Configure the Docker daemon to start automatically when the system starts, and start it now.</a></li>
+      <li><a href="#confirm-the-docker-daemon-is-running" id="markdown-toc-confirm-the-docker-daemon-is-running">Confirm the Docker daemon is running</a></li>
+      <li><a href="#only-users-with-sudo-access-can-run-docker-commands-optionally-add-non-sudo-access-to-the-docker-socket-by-adding-your-user-to-the-docker-group" id="markdown-toc-only-users-with-sudo-access-can-run-docker-commands-optionally-add-non-sudo-access-to-the-docker-socket-by-adding-your-user-to-the-docker-group">Only users with sudo access can run docker commands. Optionally, add non-sudo access to the Docker socket by adding your user to the docker group.</a></li>
+      <li><a href="#references" id="markdown-toc-references">References</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="install-docker-112">Install docker 1.12</h1>
+
+<h2 id="add-the-docker-public-key-for-cs-docker-engine-packages">Add the Docker public key for CS Docker Engine packages:</h2>
+
+<p><code class="highlighter-rouge">sudo rpm --import "https://sks-keyservers.net/pks/lookup?op=get&amp;search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e"</code></p>
+
+<h2 id="install-yum-utils-if-necessary">Install yum-utils if necessary:</h2>
+<p><code class="highlighter-rouge">sudo yum install -y yum-utils</code></p>
+
+<h2 id="add-the-docker-repository">Add the Docker repository:</h2>
+<p><code class="highlighter-rouge">sudo yum-config-manager --add-repo https://packages.docker.com/1.12/yum/repo/main/centos/7</code></p>
+
+<h2 id="install-docker-cs-engine">Install Docker CS Engine:</h2>
+
+<h3 id="list-the-available-versions">List the available versions:</h3>
+
+<p><code class="highlighter-rouge">$ yum list docker-engine.x86_64  --showduplicates |sort -r</code></p>
+
+<h3 id="install-a-specific-version-by-adding-the-version-after-docker-engine-separated-by-a-hyphen--">Install a specific version by adding the version after docker-engine, separated by a hyphen (-)</h3>
+
+<p><code class="highlighter-rouge">$ sudo yum install docker-engine-&lt;version&gt;</code>
+  <code class="highlighter-rouge">yum install docker-engine-1.12.6*</code></p>
+
+<h2 id="configure-the-docker-daemon-to-start-automatically-when-the-system-starts-and-start-it-now">Configure the Docker daemon to start automatically when the system starts, and start it now.</h2>
+
+<p><code class="highlighter-rouge">$ sudo systemctl enable docker.service</code>
+<code class="highlighter-rouge">$ sudo systemctl start docker.service</code></p>
+
+<h2 id="confirm-the-docker-daemon-is-running">Confirm the Docker daemon is running</h2>
+
+<p><code class="highlighter-rouge">$ sudo docker info</code></p>
+
+<h2 id="only-users-with-sudo-access-can-run-docker-commands-optionally-add-non-sudo-access-to-the-docker-socket-by-adding-your-user-to-the-docker-group">Only users with sudo access can run docker commands. Optionally, add non-sudo access to the Docker socket by adding your user to the docker group.</h2>
+
+<p><code class="highlighter-rouge">$ sudo usermod -a -G docker $USER</code></p>
+
+<h2 id="references">References</h2>
+
+<p><a href="https://docs.docker.com/cs-engine/1.12/#install-using-a-repository">https://docs.docker.com/cs-engine/1.12/#install-using-a-repository</a></p>
+:ET

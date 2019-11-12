@@ -1,0 +1,86 @@
+I"�<ul id="markdown-toc">
+  <li><a href="#安装-pip" id="markdown-toc-安装-pip">安装 pip</a></li>
+  <li><a href="#安装配置-shadowsocks" id="markdown-toc-安装配置-shadowsocks">安装配置 shadowsocks</a></li>
+  <li><a href="#配置自启动" id="markdown-toc-配置自启动">配置自启动</a></li>
+</ul>
+
+<p>From http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html</p>
+
+<p>CentOS 7 开始默认使用Systemd作为开启启动脚本的管理工具，Shadowsocks则是当前比较受欢迎的科学上网工具，本文将介绍如何在 CentOS 下安装和配置 Shadowsocks 服务。</p>
+
+<h1 id="安装-pip">安装 pip</h1>
+
+<p>pip是 python 的包管理工具。在本文中将使用 python 版本的 shadowsocks，此版本的 shadowsocks 已发布到 pip 上，因此我们需要通过 pip 命令来安装。</p>
+
+<p>在控制台执行以下命令安装 pip：</p>
+
+<p>curl “https://bootstrap.pypa.io/get-pip.py” -o “get-pip.py”
+python get-pip.py</p>
+
+<h1 id="安装配置-shadowsocks">安装配置 shadowsocks</h1>
+
+<p>在控制台执行以下命令安装 shadowsocks：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+    pip <span class="nb">install </span>shadowsocks
+</code></pre></div></div>
+
+<p>安装完成后，需要创建配置文件/etc/shadowsocks.json，内容如下：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"server_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8388</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uzon57jd0v869t7w"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes-256-cfb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>说明：</p>
+
+<p>method为加密方法，可选aes-128-cfb, aes-192-cfb, aes-256-cfb, bf-cfb, cast5-cfb, des-cfb, rc4-md5, chacha20, salsa20, rc4, table
+server_port为服务监听端口
+password为密码，可使用密码生成工具生成一个随机密码
+以上三项信息在配置 shadowsocks 客户端时需要配置一致，具体说明可查看 shadowsocks 的帮助文档。</p>
+
+<h1 id="配置自启动">配置自启动</h1>
+
+<p>新建启动脚本文件/etc/systemd/system/shadowsocks.service，内容如下：</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[Unit]</span>
+<span class="py">Description</span><span class="p">=</span><span class="s">Shadowsocks</span>
+
+<span class="nn">[Service]</span>
+<span class="py">TimeoutStartSec</span><span class="p">=</span><span class="s">0</span>
+<span class="py">ExecStart</span><span class="p">=</span><span class="s">/usr/bin/ssserver -c /etc/shadowsocks.json</span>
+
+<span class="nn">[Install]</span>
+<span class="py">WantedBy</span><span class="p">=</span><span class="s">multi-user.target</span>
+</code></pre></div></div>
+
+<p>执行以下命令启动 shadowsocks 服务：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl <span class="nb">enable </span>shadowsocks
+systemctl start shadowsocks
+</code></pre></div></div>
+
+<p>为了检查 shadowsocks 服务是否已成功启动，可以执行以下命令查看服务的状态：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status shadowsocks <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>如果服务启动成功，则控制台显示的信息可能类似这样：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>● shadowsocks.service - Shadowsocks
+   Loaded: loaded <span class="o">(</span>/etc/systemd/system/shadowsocks.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: disabled<span class="o">)</span>
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon 2015-12-21 23:51:48 CST<span class="p">;</span> 11min ago
+ Main PID: 19334 <span class="o">(</span>ssserver<span class="o">)</span>
+   CGroup: /system.slice/shadowsocks.service
+           └─19334 /usr/bin/python /usr/bin/ssserver <span class="nt">-c</span> /etc/shadowsocks.json
+
+Dec 21 23:51:48 morning.work systemd[1]: Started Shadowsocks.
+Dec 21 23:51:48 morning.work systemd[1]: Starting Shadowsocks...
+Dec 21 23:51:48 morning.work ssserver[19334]: INFO: loading config from /etc/shadowsocks.json
+Dec 21 23:51:48 morning.work ssserver[19334]: 2015-12-21 23:51:48 INFO     loading libcrypto from libcrypto.so.10
+Dec 21 23:51:48 morning.work ssserver[19334]: 2015-12-21 23:51:48 INFO     starting server at 0.0.0.0:8388
+</code></pre></div></div>
+:ET

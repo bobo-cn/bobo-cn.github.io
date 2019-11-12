@@ -1,0 +1,71 @@
+I"%#<ul id="markdown-toc">
+  <li><a href="#step-1-start-the-linux-virtual-machine" id="markdown-toc-step-1-start-the-linux-virtual-machine">Step 1: Start the Linux Virtual Machine</a>    <ul>
+      <li><a href="#step-2-clean-any-free-disk-space" id="markdown-toc-step-2-clean-any-free-disk-space">Step 2: Clean any free disk space</a>        <ul>
+          <li><a href="#the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command" id="markdown-toc-the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command">The most effective way to clean free disk space on a Linux drive is to use the Linux dd utility which is a bit-stream duplicator. Open up a terminal window and type the following command:</a></li>
+        </ul>
+      </li>
+      <li><a href="#this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive" id="markdown-toc-this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive">This command will zero-fill any free disk space on the virtual Linux drive.</a></li>
+      <li><a href="#once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device" id="markdown-toc-once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device">Once the dd has completed, you will see a message in your terminal window indicating that there is no space left on the device:</a></li>
+      <li><a href="#you-can-now-remove-zerofillfile-using-the-linux-rm-utility" id="markdown-toc-you-can-now-remove-zerofillfile-using-the-linux-rm-utility">You can now remove zerofillfile using the Linux rm utility:</a></li>
+    </ul>
+  </li>
+  <li><a href="#step-3-shutdown-the-linux-virtual-machine" id="markdown-toc-step-3-shutdown-the-linux-virtual-machine">Step 3: Shutdown the Linux Virtual Machine</a></li>
+  <li><a href="#step-4-compact-the-linux-guest-image" id="markdown-toc-step-4-compact-the-linux-guest-image">Step 4: Compact the Linux guest image</a>    <ul>
+      <li><a href="#to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt" id="markdown-toc-to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt">To compact the Linux guest image, use the VirtualBox VBoxManage utility. Assuming a Windows host, use the following command at the DOS prompt:</a></li>
+      <li><a href="#ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters" id="markdown-toc-ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters">Ensure that you replace the items in square brackets with your parameters.</a></li>
+      <li><a href="#if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows" id="markdown-toc-if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows">If your Windows host complains that VBoxManage cannot be found or is an invalid command, you may need to explicitly specify the path to the VirtualBox executables. So a complete example for compacting a Linux guest image at the DOS prompt is as follows:</a></li>
+      <li><a href="#once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file" id="markdown-toc-once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file">Once the VirtualBox VBoxManage utility is running you will see progress indicators in 10% increments starting from 0% to 100%. And once the process is complete, you should have a smaller disk image file</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="step-1-start-the-linux-virtual-machine">Step 1: Start the Linux Virtual Machine</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Start the Linux Virtual Machine and log in with administrative rights.
+</code></pre></div></div>
+
+<h2 id="step-2-clean-any-free-disk-space">Step 2: Clean any free disk space</h2>
+
+<h3 id="the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command">The most effective way to clean free disk space on a Linux drive is to use the Linux dd utility which is a bit-stream duplicator. Open up a terminal window and type the following command:</h3>
+
+<p><code class="highlighter-rouge">dd if=/dev/zero of=zerofillfile bs=1M</code></p>
+
+<h2 id="this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive">This command will zero-fill any free disk space on the virtual Linux drive.</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span><span class="o">=</span> specifies the input file<span class="p">;</span>
+    /dev/zero indicates a bit-stream of zeros
+    <span class="nv">of</span><span class="o">=</span> specifies the output file
+    zerofillfile name of the file containing the bit-stream of zeros
+    <span class="nv">bs</span><span class="o">=</span> indicates the block size
+    1M indicates that the block size will be 1 megabyte
+</code></pre></div></div>
+
+<h2 id="once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device">Once the dd has completed, you will see a message in your terminal window indicating that there is no space left on the device:</h2>
+
+<p><code class="highlighter-rouge">dd: writing 'zerofillfile': No space left on device</code></p>
+
+<h2 id="you-can-now-remove-zerofillfile-using-the-linux-rm-utility">You can now remove zerofillfile using the Linux rm utility:</h2>
+
+<p><code class="highlighter-rouge">rm zerofillfile</code></p>
+
+<h1 id="step-3-shutdown-the-linux-virtual-machine">Step 3: Shutdown the Linux Virtual Machine</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>End your session and shutdown the Linux Virtual Machine.
+</code></pre></div></div>
+
+<h1 id="step-4-compact-the-linux-guest-image">Step 4: Compact the Linux guest image</h1>
+
+<h2 id="to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt">To compact the Linux guest image, use the VirtualBox VBoxManage utility. Assuming a Windows host, use the following command at the DOS prompt:</h2>
+
+<p><code class="highlighter-rouge">VBoxManage modifyhd --compact "[drive]:\[path_to_image_file]\[name_of_image_file].vdi"</code></p>
+
+<h2 id="ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters">Ensure that you replace the items in square brackets with your parameters.</h2>
+
+<h2 id="if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows">If your Windows host complains that VBoxManage cannot be found or is an invalid command, you may need to explicitly specify the path to the VirtualBox executables. So a complete example for compacting a Linux guest image at the DOS prompt is as follows:</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    C:<span class="se">\&gt;</span> path C:<span class="se">\P</span>rogram Files<span class="se">\O</span>racle<span class="se">\V</span>irtualBox
+    C:<span class="se">\&gt;</span> VBoxManage modifyhd <span class="nt">--compact</span> <span class="s2">"C:</span><span class="se">\n</span><span class="s2">etreliant_VMs</span><span class="se">\l</span><span class="s2">inux_001.vdi"</span>
+</code></pre></div></div>
+
+<h2 id="once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file">Once the VirtualBox VBoxManage utility is running you will see progress indicators in 10% increments starting from 0% to 100%. And once the process is complete, you should have a smaller disk image file</h2>
+:ET

@@ -1,0 +1,17 @@
+I"è<ul id="markdown-toc">
+  <li><a href="#cancel-the-global-setting" id="markdown-toc-cancel-the-global-setting">Cancel the global setting</a></li>
+  <li><a href="#setup-the-useremail-for-each-repo" id="markdown-toc-setup-the-useremail-for-each-repo">Setup the user.email for each repo</a></li>
+</ul>
+
+<h1 id="cancel-the-global-setting">Cancel the global setting</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git config <span class="nt">--global</span> <span class="nt">--unset</span> user.name
+    git config <span class="nt">--global</span> <span class="nt">--unset</span> user.email
+</code></pre></div></div>
+
+<h1 id="setup-the-useremail-for-each-repo">Setup the user.email for each repo</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git config  user.email <span class="s2">"xxxx@xx.com"</span>
+    git config  user.name <span class="s2">"name"</span>
+</code></pre></div></div>
+:ET

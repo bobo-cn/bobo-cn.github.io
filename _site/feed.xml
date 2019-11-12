@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bo's Log</title>
+    <description></description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 13 Nov 2019 01:16:08 +0800</pubDate>
+    <lastBuildDate>Wed, 13 Nov 2019 01:16:08 +0800</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>塔吉锅菜谱</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#塔吉锅菜谱&quot; id=&quot;markdown-toc-塔吉锅菜谱&quot;&gt;塔吉锅菜谱&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#香辣鸡块锅&quot; id=&quot;markdown-toc-香辣鸡块锅&quot;&gt;香辣鸡块锅&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#焖烧南瓜&quot; id=&quot;markdown-toc-焖烧南瓜&quot;&gt;焖烧南瓜&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#蘑菇番茄烩肥牛&quot; id=&quot;markdown-toc-蘑菇番茄烩肥牛&quot;&gt;蘑菇番茄烩肥牛&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#茄汁鸡翅根&quot; id=&quot;markdown-toc-茄汁鸡翅根&quot;&gt;茄汁鸡翅根&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#海鲜饭&quot; id=&quot;markdown-toc-海鲜饭&quot;&gt;海鲜饭&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#什锦煲&quot; id=&quot;markdown-toc-什锦煲&quot;&gt;什锦煲&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#茄汁鸡肉&quot; id=&quot;markdown-toc-茄汁鸡肉&quot;&gt;茄汁鸡肉&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#啤酒鸭腿&quot; id=&quot;markdown-toc-啤酒鸭腿&quot;&gt;啤酒鸭腿&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三汁焖锅之鸡翅锅&quot; id=&quot;markdown-toc-三汁焖锅之鸡翅锅&quot;&gt;三汁焖锅之鸡翅锅&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#排骨腊肠煲仔饭&quot; id=&quot;markdown-toc-排骨腊肠煲仔饭&quot;&gt;排骨腊肠煲仔饭&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#干锅香辣虾&quot; id=&quot;markdown-toc-干锅香辣虾&quot;&gt;干锅香辣虾&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#鲜美杂蔬&quot; id=&quot;markdown-toc-鲜美杂蔬&quot;&gt;鲜美杂蔬&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#白菜肉丸&quot; id=&quot;markdown-toc-白菜肉丸&quot;&gt;白菜肉丸&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#雪碧红烧肉&quot; id=&quot;markdown-toc-雪碧红烧肉&quot;&gt;雪碧红烧肉&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#土豆焖鸡&quot; id=&quot;markdown-toc-土豆焖鸡&quot;&gt;土豆焖鸡&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#榛蘑土豆烧翅根&quot; id=&quot;markdown-toc-榛蘑土豆烧翅根&quot;&gt;榛蘑土豆烧翅根&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#茄子鸡腿煲&quot; id=&quot;markdown-toc-茄子鸡腿煲&quot;&gt;茄子鸡腿煲&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#韩式聚宝盆&quot; id=&quot;markdown-toc-韩式聚宝盆&quot;&gt;韩式聚宝盆&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#奥尔良煎鸡饭&quot; id=&quot;markdown-toc-奥尔良煎鸡饭&quot;&gt;奥尔良煎鸡饭&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#焗蔬菜羊排&quot; id=&quot;markdown-toc-焗蔬菜羊排&quot;&gt;焗蔬菜羊排&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#酱香五花长茄豆腐煲&quot; id=&quot;markdown-toc-酱香五花长茄豆腐煲&quot;&gt;酱香五花长茄豆腐煲&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;塔吉锅菜谱&quot;&gt;塔吉锅菜谱&lt;/h1&gt;
+
+&lt;h2 id=&quot;香辣鸡块锅&quot;&gt;香辣鸡块锅&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸡翅， 洋葱， 蒜瓣， 白萝卜， 黑胡椒粉， 西红柿， 料酒， 鸡块， 豇豆&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+&lt;ol&gt;
+  &lt;li&gt;鸡翅，切成2-3小块，加入盐，料酒和黑胡椒粉腌制15-20分钟&lt;/li&gt;
+  &lt;li&gt;塔吉锅底刷一层薄薄的油，把洋葱和蒜瓣收入煸香。&lt;/li&gt;
+  &lt;li&gt;加入鸡块翻炒下。等鸡块变色后倒入生抽和老抽。盖上锅盖焖3分钟。&lt;/li&gt;
+  &lt;li&gt;加入萝卜片，西红柿和豇豆，最上面加上火锅锅底，小火焖10分钟。加盐翻拌，再小火焖1-2分钟。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;焖烧南瓜&quot;&gt;焖烧南瓜&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;南瓜，少许盐，橄榄油，花椒面&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;南瓜切成块状，撒上少许盐和花椒面，再加点橄榄油，将南瓜块腌制15分钟，然后放入塔吉锅中，放少许的水。&lt;/li&gt;
+  &lt;li&gt;大火，待塔吉锅开始扑锅溢水时，转小火7分钟，关火，焖5分钟即可。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;蘑菇番茄烩肥牛&quot;&gt;蘑菇番茄烩肥牛&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;牛肉片， 王子菇， 西红柿， 酱油， 料酒&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;用沸水浇一下牛肉片去腥&lt;/li&gt;
+  &lt;li&gt;牛肉先下过油，放少许酱油和料酒，翻炒片刻&lt;/li&gt;
+  &lt;li&gt;塔吉锅开小火， 加两滴油， 放葱&lt;/li&gt;
+  &lt;li&gt;王子菇和西红柿切片， 依次摆进锅里， 加一点盐， 最上层码上牛肉。中火5分钟， 然后转小火10分钟。关火，焖5分钟即可。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;茄汁鸡翅根&quot;&gt;茄汁鸡翅根&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸡翅根（6个）， 洋葱（半个）， 茄子（半个）， 彩椒（3个）， 番茄罐头（半个）， 盐胡椒（少许）， 蒜（一瓣）， 橄榄油（少许）&lt;/li&gt;
+&lt;/ul&gt;
+
+做法
+
+&lt;ol&gt;
+  &lt;li&gt;鸡翅根用盐和黑胡椒腌，搓入味，放置20分钟&lt;/li&gt;
+  &lt;li&gt;锅烧热，加一小勺橄榄油，煎香蒜后把鸡翅煎黄&lt;/li&gt;
+  &lt;li&gt;加番茄罐头，盖盖子小火焖10分钟左右&lt;/li&gt;
+  &lt;li&gt;加余下的配料盖盖子焖软，再加盐和黑胡椒调味即可。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;海鲜饭&quot;&gt;海鲜饭&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;橄榄油、洋葱丝、蒜、黄椒、 红椒、米、高汤、西红柿、 墨鱼圈、青豆、玉米粒、刀豆、大虾、盐&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;锅里橄榄油烧热后炒洋葱丝、蒜碎和黄红椒条&lt;/li&gt;
+  &lt;li&gt;加入生米和西红柿翻炒一会儿，加入水或者高汤，盖盖子大概焖10分钟&lt;/li&gt;
+  &lt;li&gt;放入墨鱼圈、青豆、玉米粒、刀豆之类继续焖10分钟&lt;/li&gt;
+  &lt;li&gt;盐调味，摆入煎熟的大虾，焖5分钟出锅即可&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;什锦煲&quot;&gt;什锦煲&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;西红柿、黑木耳、干香菇、土豆、广味腊肠、虾仁、豇豆&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;先将最易出汁的西红柿放在最下面做底，然后逐层铺上食材&lt;/li&gt;
+  &lt;li&gt;全程小火焖10分钟，盖子有水汽溢出时关火&lt;/li&gt;
+  &lt;li&gt;关火后再焖3分钟左右撒上盐和些许黑胡椒拌匀即可&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;茄汁鸡肉&quot;&gt;茄汁鸡肉&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸡腿（3个）、小茄子（1个）、小番茄（若干）、彩椒（1个）、洋葱（小半个）、大蒜（几瓣）、黑胡椒粉、橄榄油、蕃茄酱、盐&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;鸡腿去骨、切小块，用一小勺胡椒粉、适量盐拌匀，腌制20分钟，其他配菜切好&lt;/li&gt;
+  &lt;li&gt;锅中加适量橄榄油烧热，下蒜瓣煎出香味，放入腌好的鸡肉煎至金黄，盖上盖子小火10分钟&lt;/li&gt;
+  &lt;li&gt;加入洋葱和蕃茄酱翻炒匀，盖上盖子小火焖5分钟&lt;/li&gt;
+  &lt;li&gt;加入蔬菜，小火为10分钟左右焖软，加盐和黑胡椒调味即可&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;啤酒鸭腿&quot;&gt;啤酒鸭腿&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸭腿（两只）、啤酒、葱、姜、大蒜、肉桂、食用油、八角、草果、香叶、花椒、老抽、盐、白糖&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    鸭腿洗净，斩成小块，然后放开水，锅里煮掉血水，捞出冲洗干净备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    中火热锅倒入少量食用油、花椒一起加热出香味。放姜、葱、大蒜爆香，把鸭腿略煎香表皮
+  &lt;/li&gt;
+  &lt;li&gt;
+    加老抽上色，然后倒入少量的啤酒。放入肉桂八角、草果、香叶、白糖，用大火6-7分钟加热，等它沸腾后，小火慢炖20分钟，熄火即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;三汁焖锅之鸡翅锅&quot;&gt;三汁焖锅之鸡翅锅&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸡翅、蚝油（2勺）、甜面酱（2勺）、蕃茄酱（1.5勺）、生抽（2勺）、糖（少许）&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    先将鸡翅用黑胡椒、生抽腌制
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅内放少许色拉油，将蔬菜微炒一下，加水，将蔬菜焖熟，放入鸡翅，继续焖几分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    鸡翅8分熟时，刷入酱料，焖10分钟以后，翻炒一下，再放入香菜，焖5分钟后即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;排骨腊肠煲仔饭&quot;&gt;排骨腊肠煲仔饭&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;香米400克、排骨400克、 广式腊肠1根、韭黄适量、西兰花半颗、胡萝卜半根、生抽2勺、老豆豉1勺、蒜蓉适量、白糖2勺、香油适量、调和油适量、鸡精少许、盐适量&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    排骨洗净，控干水分。加入生抽、老抽、豉香芙蓉、白糖、香油、腌两小时以上。（可以更久，更入味）
+  &lt;/li&gt;
+  &lt;li&gt;
+    大米淘净放清水泡1小时以上
+  &lt;/li&gt;
+  &lt;li&gt;
+    韭黄切段备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    塔吉锅放米和水滴几滴油开始中火加热，冒气后转小火加热7分钟左右
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅内放入油，油热后放入排骨翻炒。（加热米饭的同时做）
+  &lt;/li&gt;
+  &lt;li&gt;
+    排骨上色后加入韭黄翻炒一下便出锅
+  &lt;/li&gt;
+  &lt;li&gt;
+    广式腊肠，切片
+  &lt;/li&gt;
+  &lt;li&gt;
+    米饭烧7分钟后打开塔吉锅盖，这个时候米饭里面很多眼眼
+  &lt;/li&gt;
+  &lt;li&gt;
+    迅速放入排骨和腊肠后，喜欢吃锅巴的可以再滴入少许色拉油，盖上锅盖，小火，再加热8分钟左右
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅子烧开水，滴入少许色拉油，加入少许盐，加入西兰花和胡萝卜片，焯水
+  &lt;/li&gt;
+  &lt;li&gt;
+    打开锅盖，将西兰花和胡萝卜码在排骨和腊肠的旁边。小火再加热1分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    米饭关火，不要马上开盖，再焖10分钟，利用余温，继续焖煮
+  &lt;/li&gt;
+  &lt;li&gt;
+    吃之前， 可以事先搅拌，盛碗
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;干锅香辣虾&quot;&gt;干锅香辣虾&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;北极虾、蟹肉棒、芹菜、胡萝卜、土豆、黄瓜蘑菇、洋葱、干锅调料一包&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    菜用清水洗干净，切条备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    将塔吉锅放在灶具上加热，放色拉油
+  &lt;/li&gt;
+  &lt;li&gt;
+    土豆入锅微翻炒，蔬菜放进锅内翻炒五分熟
+  &lt;/li&gt;
+  &lt;li&gt;
+    放入调料煸炒出香味
+  &lt;/li&gt;
+  &lt;li&gt;
+    放入蔬菜，加入少许料酒，再码上北极虾和蟹肉棒
+  &lt;/li&gt;
+  &lt;li&gt;
+    盖上锅盖，中火烧6分钟即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;鲜美杂蔬&quot;&gt;鲜美杂蔬&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;苔菜、胡萝卜、茄子、蘑菇、西红柿、五花肉、精盐、酱油，分量按自己需要&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    蔬菜洗净，茄子切大片，胡萝卜切长段，西红柿切大片，蘑菇撕成小片
+  &lt;/li&gt;
+  &lt;li&gt;
+    依次将苔菜、胡萝卜段、蘑菇片、茄子片、切成薄片的五花肉及西红柿码入锅内
+  &lt;/li&gt;
+  &lt;li&gt;
+    用酱油、精盐、料酒、清水兑成料汁，从码好的蔬菜顶部倒入
+  &lt;/li&gt;
+  &lt;li&gt;
+    盖上锅盖，用小火焖，5分钟后当水开始从锅沿溢出，即转用大火1分钟后关火
+  &lt;/li&gt;
+  &lt;li&gt;
+    利用锅体的余热焖上几分钟即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;白菜肉丸&quot;&gt;白菜肉丸&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;白菜半颗、肉丸、豆腐、蘑菇、葱花、浓汤宝、盐&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    白菜掰成块，豆腐切小块
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅内倒点儿油，用小火将葱花稍微加热，再倒入白菜小翻炒
+  &lt;/li&gt;
+  &lt;li&gt;
+    加入水及浓汤宝、肉丸，用大火焖烧10分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    转小火，将豆腐均匀的洒在白菜上，盖上盖子焖15分钟即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;雪碧红烧肉&quot;&gt;雪碧红烧肉&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;带皮精五花肉一斤，金针菇一小把、雪碧一瓶、干辣椒2个、桂皮1块、橙皮1片、八角1个、二十三香一勺、料酒2勺、白酒1勺、冰糖一把、生抽2勺、老抽1勺、蚝油1勺、花椒水1碗&lt;/li&gt;
+&lt;/ul&gt;
+
+做法
+
+&lt;ol&gt;
+  &lt;li&gt;
+    五花肉切块，用料酒腌制10分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    腌好的五花肉煮15分钟，去杂质和血
+  &lt;/li&gt;
+  &lt;li&gt;
+    葱姜蒜切块，切断炒香。放入煮好的五花肉炒1分钟后加入二十三香，冰糖、生抽、老抽、料酒、鸡精翻炒
+  &lt;/li&gt;
+  &lt;li&gt;
+    炒出香味以后，加入干辣椒、八角、桂皮、陈皮、三分之二的雪碧，一小碗花椒水
+  &lt;/li&gt;
+  &lt;li&gt;
+    用中小火开始炖，炖到汁只剩下三分之一位置
+  &lt;/li&gt;
+  &lt;li&gt;
+    金针菇过水焯一下后卷起来放中间，五花肉放四周，把汤汁浇在金针菇上
+  &lt;/li&gt;
+  &lt;li&gt;
+    盖上锅盖开始加热焖煮15分钟改小火，直到冒气为止，关火以后焖3分钟即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;土豆焖鸡&quot;&gt;土豆焖鸡&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸡（半只）、土豆（4个）、姜（少量）、生抽（适量）、蒜（少量）、葱（少量）&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    鸡肉切成小块
+  &lt;/li&gt;
+  &lt;li&gt;
+    炒锅里放少量油，放入姜和蒜爆香
+  &lt;/li&gt;
+  &lt;li&gt;
+    加入鸡肉和土豆，加老抽上色
+  &lt;/li&gt;
+  &lt;li&gt;
+    将处理好的鸡肉和土豆放入塔吉锅
+  &lt;/li&gt;
+  &lt;li&gt;
+    淋点生抽，加点糖和盐，大火焖10分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    关火焖几分钟再开盖放入香葱即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;榛蘑土豆烧翅根&quot;&gt;榛蘑土豆烧翅根&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;翅根500克、榛蘑200克、土豆2个、葱花少许、大蒜2瓣、生抽2匙、盐1匙、糖1匙、耗油1匙、胡椒粉1匙、味精少许&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    榛蘑用温水泡开洗净，翅根洗净备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    葱和蒜切好备用，土豆去皮洗净切块
+  &lt;/li&gt;
+  &lt;li&gt;
+    炒锅中倒入少许油、放入葱花、打算煸炒
+  &lt;/li&gt;
+  &lt;li&gt;
+    倒入翅根煸炒，放入生抽2匙，糖1匙、蚝油1匙、胡椒粉1匙、味精少许，添入少许水，水开后盛出备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    塔吉锅中刷少许油，放入榛蘑和土豆垫底
+  &lt;/li&gt;
+  &lt;li&gt;
+    把翅根放在上面，倒入汤汁，放入剁椒提味
+  &lt;/li&gt;
+  &lt;li&gt;
+    盖上盖子，大火烧5分钟左右有水溢出后，关火焖制10分钟后即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;茄子鸡腿煲&quot;&gt;茄子鸡腿煲&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;鸡腿3个、茄子1个、青红椒1个、洋葱半个、大蒜、黑胡椒粉、橄榄油、番茄酱、盐&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    去鸡腿骨，洗净后，切成小块
+  &lt;/li&gt;
+  &lt;li&gt;
+    茄子和青红椒洗净，切成小块，洋葱切成丝，大蒜拍松
+  &lt;/li&gt;
+  &lt;li&gt;
+    把切好的鸡腿肉用一小勺胡椒粉、少量的盐、腌制15分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    塔吉锅用中小火加热，放入少许橄榄油，放入蒜瓣煸香，放入腌好的鸡肉煸炒至金黄
+  &lt;/li&gt;
+  &lt;li&gt;
+    加入洋葱和番茄酱翻炒匀，盖上塔吉锅盖子文火焖5分钟左右
+  &lt;/li&gt;
+  &lt;li&gt;
+    放入切好的茄子、青红椒、继续用文火焖15分钟，关火前加入黑胡椒、盐、搅抖均匀即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;韩式聚宝盆&quot;&gt;韩式聚宝盆&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;牛肉一块、海带、莴笋、胡萝卜一根、鸡蛋两个、豆干两大块、罐头午餐肉一个、金针菇适量、生菜5片、海米一把、葱姜蒜适量、盐两勺、白糖一小勺&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    豆干切成两半，把午餐肉夹在中间，用葱叶子结好
+  &lt;/li&gt;
+  &lt;li&gt;
+    鸡蛋煎成薄饼，切成细条，莴笋、胡萝卜、黄瓜、海带、金针菇切条切断，海米泡好备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    全部摆在锅内里，再把生菜放在中间
+  &lt;/li&gt;
+  &lt;li&gt;
+    牛肉切薄片，用胡椒面、咸盐、料酒腌制10分钟，放在中间
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅热后，倒入泡好的还米，加入花椒水、生抽、鸡精、盐、料酒、蚝油开始煮
+  &lt;/li&gt;
+  &lt;li&gt;
+    把这些汁浇在摆好的菜上
+  &lt;/li&gt;
+  &lt;li&gt;
+    盖上锅盖开小火开始炖，一直炖到锅盖出水为止
+  &lt;/li&gt;
+  &lt;li&gt;
+    掀盖，撒上小葱碎即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;奥尔良煎鸡饭&quot;&gt;奥尔良煎鸡饭&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;大米300克、鸡腿1只、西兰花180克、胡萝卜半根、盐、糖和生抽各1勺、蚝油2勺半、鲍汁一勺、奥尔良烤鸡料适量、葱花少许、姜丝适量、葱头碎50克&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    鸡腿去掉骨头用刀背砸松软，皮用叉子扎些孔
+  &lt;/li&gt;
+  &lt;li&gt;
+    鸡肉加入半勺左右的盐、绍酒少许抓出起粘，放入葱头和姜腌制20分钟左右
+  &lt;/li&gt;
+  &lt;li&gt;
+    将鸡腿肉用中小火煎成两面金黄九成熟
+  &lt;/li&gt;
+  &lt;li&gt;
+    胡萝卜一多半切成片，剩下的切成小丁，西兰花清洗干净
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅中放入一点香油和一勺盐，水开放入胡萝卜，开锅后放入西兰花焯水。焯水过的蔬菜马上过凉捞出控干备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    碗内调入生抽、蚝油、鲍汁和少许水成料汁
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅热放少许油，温热放入葱姜煸炒，然后放入红萝卜丁。萝卜丁翻炒均匀后放入洗好的大米翻炒
+  &lt;/li&gt;
+  &lt;li&gt;
+    放入半勺盐放入做米饭一样的水，用中火烧开后，转小火焖15-20分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    米饭已经熟后，把胡萝卜片和鸡肉码在米饭上，淋上一半的料汁再焖3分钟左右
+  &lt;/li&gt;
+  &lt;li&gt;
+    把西兰花码在边上，淋上剩下的汁即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;焗蔬菜羊排&quot;&gt;焗蔬菜羊排&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;羔羊肋排一块、洋葱100克、土豆片150克、胡萝卜片100克、圆茄300克、烤肉腌料粉4克、草果1枚、花椒4克、八角2枚、香叶1片、葱段20克、姜片15克、孜然2克、精盐5克、味精1克、白酒15克、黑椒烤酱40克、橄榄油20克、黑胡椒碎1克&lt;/li&gt;
+&lt;/ul&gt;
+
+做法：
+
+&lt;ol&gt;
+  &lt;li&gt;
+    羊排腌制，先把草果用刀拍碎
+  &lt;/li&gt;
+  &lt;li&gt;
+    把拍碎的草果放入羊排里，里面再放入葱、姜、八角、花椒和香叶
+  &lt;/li&gt;
+  &lt;li&gt;
+    倒入少许白酒拌匀，撒入少许盐、味精，再放入腌料粉和孜然粉拌匀。之后蒙上保鲜膜腌制5-6小时备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    把圆茄切厚片，洋葱切稍粗一些的丝备用
+  &lt;/li&gt;
+  &lt;li&gt;
+    往塔吉锅里滴入几滴橄榄油把锅底抹匀，锅中撒入洋葱丝铺底。再码上一层土豆片和胡萝卜
+  &lt;/li&gt;
+  &lt;li&gt;
+    把圆茄片用少许橄榄油或黄油在平底锅中煎至两面微黄。
+  &lt;/li&gt;
+  &lt;li&gt;
+    煎好后铺在土豆和胡萝卜上
+  &lt;/li&gt;
+  &lt;li&gt;
+    把腌制好的羊排取出抖净上面的腌料放入塔吉锅中，浇上黑椒烤酱，最后蒙上铝箔纸
+  &lt;/li&gt;
+  &lt;li&gt;
+    把塔吉锅置入预热好的烤箱内中架，用上下火220度的高温进行烘烤，大约烘烤50分钟
+  &lt;/li&gt;
+  &lt;li&gt;
+    取出撒少许熟黑胡椒碎和小香葱即可
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;酱香五花长茄豆腐煲&quot;&gt;酱香五花长茄豆腐煲&lt;/h2&gt;
+
+材料：
+
+&lt;ul&gt;
+  &lt;li&gt;豆腐（一块）、长茄（一根）、五花肉、蒜瓣、葱段、甜面酱、生抽、蚝油、糖、水&lt;/li&gt;
+&lt;/ul&gt;
+
+做法
+
+&lt;ol&gt;
+  &lt;li&gt;
+    豆腐切块，长茄滚刀块，五花肉切薄片
+  &lt;/li&gt;
+  &lt;li&gt;
+    锅底不加油，直接放入五花肉，开小火翻面，等五花肉微焦并出油时，放入蒜瓣，翻炒一下让整个锅底锅边都粘上油
+  &lt;/li&gt;
+  &lt;li&gt;
+    放入茄子块，豆腐块、瘦肉（也可不加）。倒入之前调好的酱料（酱料：甜面酱，生抽，蚝油，少许糖，少许水）
+  &lt;/li&gt;
+  &lt;li&gt;
+    先大火，溢水后改小火焖10-12分钟，关火后焖5-6分钟，撒上葱段，淋上香油即可。
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 08 Jul 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/07/08/Taji-Pot-Recipe/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/07/08/Taji-Pot-Recipe/</guid>
+        
+        <category>Misc</category>
+        
+        
+        <category>Miscellaneous</category>
+        
+      </item>
+    
+      <item>
+        <title>How to setup key pair for Linux</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#generate-ssh-key&quot; id=&quot;markdown-toc-generate-ssh-key&quot;&gt;Generate SSH key&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#create-a-user-in-target-env-and-authenticate-by-public-key&quot; id=&quot;markdown-toc-create-a-user-in-target-env-and-authenticate-by-public-key&quot;&gt;Create a user in target env and authenticate by public key&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#save-the-private-key-to-jenkins-and-called-by-pipeline&quot; id=&quot;markdown-toc-save-the-private-key-to-jenkins-and-called-by-pipeline&quot;&gt;Save the private key to Jenkins and called by pipeline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;generate-ssh-key&quot;&gt;Generate SSH key&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot;&gt;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&lt;/a&gt;
+
+&lt;h3 id=&quot;create-a-user-in-target-env-and-authenticate-by-public-key&quot;&gt;Create a user in target env and authenticate by public key&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;useradd username&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd etc/ssh&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cp sshd_configure sshd_configure.backup&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;enable the public key authentication&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service sshd restart&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service sshd status&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.ssh/authorized_keys&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;append the public key to the keys file&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;usermod -a -G groupname username&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;save-the-private-key-to-jenkins-and-called-by-pipeline&quot;&gt;Save the private key to Jenkins and called by pipeline&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 24 Apr 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/04/24/How-to-setup-key-in-target-env/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/04/24/How-to-setup-key-in-target-env/</guid>
+        
+        <category>Linux</category>
+        
+        
+        <category>Operation</category>
+        
+      </item>
+    
+      <item>
+        <title>Install Shadowsocks in CentOS</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#安装-pip&quot; id=&quot;markdown-toc-安装-pip&quot;&gt;安装 pip&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#安装配置-shadowsocks&quot; id=&quot;markdown-toc-安装配置-shadowsocks&quot;&gt;安装配置 shadowsocks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#配置自启动&quot; id=&quot;markdown-toc-配置自启动&quot;&gt;配置自启动&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+From http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html
+
+CentOS 7 开始默认使用Systemd作为开启启动脚本的管理工具，Shadowsocks则是当前比较受欢迎的科学上网工具，本文将介绍如何在 CentOS 下安装和配置 Shadowsocks 服务。
+
+&lt;h1 id=&quot;安装-pip&quot;&gt;安装 pip&lt;/h1&gt;
+
+pip是 python 的包管理工具。在本文中将使用 python 版本的 shadowsocks，此版本的 shadowsocks 已发布到 pip 上，因此我们需要通过 pip 命令来安装。
+
+在控制台执行以下命令安装 pip：
+
+curl “https://bootstrap.pypa.io/get-pip.py” -o “get-pip.py”
+python get-pip.py
+
+&lt;h1 id=&quot;安装配置-shadowsocks&quot;&gt;安装配置 shadowsocks&lt;/h1&gt;
+
+在控制台执行以下命令安装 shadowsocks：
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt; pip
+    pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;shadowsocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+安装完成后，需要创建配置文件/etc/shadowsocks.json，内容如下：
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.0.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;server_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8388&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uzon57jd0v869t7w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+说明：
+
+method为加密方法，可选aes-128-cfb, aes-192-cfb, aes-256-cfb, bf-cfb, cast5-cfb, des-cfb, rc4-md5, chacha20, salsa20, rc4, table
+server_port为服务监听端口
+password为密码，可使用密码生成工具生成一个随机密码
+以上三项信息在配置 shadowsocks 客户端时需要配置一致，具体说明可查看 shadowsocks 的帮助文档。
+
+&lt;h1 id=&quot;配置自启动&quot;&gt;配置自启动&lt;/h1&gt;
+
+新建启动脚本文件/etc/systemd/system/shadowsocks.service，内容如下：
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[Unit]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Shadowsocks&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[Service]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;TimeoutStartSec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/usr/bin/ssserver -c /etc/shadowsocks.json&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[Install]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;multi-user.target&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+执行以下命令启动 shadowsocks 服务：
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;shadowsocks
+systemctl start shadowsocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+为了检查 shadowsocks 服务是否已成功启动，可以执行以下命令查看服务的状态：
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status shadowsocks &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+如果服务启动成功，则控制台显示的信息可能类似这样：
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;● shadowsocks.service - Shadowsocks
+   Loaded: loaded &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/etc/systemd/system/shadowsocks.service&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; enabled&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; vendor preset: disabled&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   Active: active &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;running&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; since Mon 2015-12-21 23:51:48 CST&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 11min ago
+ Main PID: 19334 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ssserver&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   CGroup: /system.slice/shadowsocks.service
+           └─19334 /usr/bin/python /usr/bin/ssserver &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /etc/shadowsocks.json
+
+Dec 21 23:51:48 morning.work systemd[1]: Started Shadowsocks.
+Dec 21 23:51:48 morning.work systemd[1]: Starting Shadowsocks...
+Dec 21 23:51:48 morning.work ssserver[19334]: INFO: loading config from /etc/shadowsocks.json
+Dec 21 23:51:48 morning.work ssserver[19334]: 2015-12-21 23:51:48 INFO     loading libcrypto from libcrypto.so.10
+Dec 21 23:51:48 morning.work ssserver[19334]: 2015-12-21 23:51:48 INFO     starting server at 0.0.0.0:8388
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 06 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/06/Install-Shadowsocks-in-CentOS/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/06/Install-Shadowsocks-in-CentOS/</guid>
+        
+        <category>Misc</category>
+        
+        
+        <category>Miscellaneous</category>
+        
+      </item>
+    
+      <item>
+        <title>Delete WAS profile</title>
+        <description>
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+操作前需要确认执行操作的用户具有WAS管理员权限，在aix及linux平台root用户即可，windows平台则正常系统用户即可。本步骤中使用windows平台测试，使用的是系统管理官员
+2
+
+停WAS服务  
+
+在删除前一定要确认将WAS服务停止，在windows平台可以在services.msc中查找确认启动状态，在linux及aix平台可以使用ps -ef|grep was来确认
+3
+
+确认profile名称
+
+cd D:\Program Files (x86)\IBM\WebSphere\AppServer\bin&amp;gt;
+
+manageprofiles.bat -listProfiles
+4
+
+删除profile定义
+
+cd D:\Program Files (x86)\IBM\WebSphere\AppServer\bin&amp;gt;
+
+manageprofiles.bat  -delete -profileName myprofile
+5
+
+删除概要文件所在目录
+
+到D:\Program Files (x86)\IBM\WebSphere\AppServer\删除profiles文件夹
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 24 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/24/Delete-WAS-profile/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/24/Delete-WAS-profile/</guid>
+        
+        <category>WAS</category>
+        
+        
+        <category>Operation</category>
+        
+      </item>
+    
+      <item>
+        <title>Compacting VirtualBox Disk Images - Linux Guests</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-1-start-the-linux-virtual-machine&quot; id=&quot;markdown-toc-step-1-start-the-linux-virtual-machine&quot;&gt;Step 1: Start the Linux Virtual Machine&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#step-2-clean-any-free-disk-space&quot; id=&quot;markdown-toc-step-2-clean-any-free-disk-space&quot;&gt;Step 2: Clean any free disk space&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command&quot; id=&quot;markdown-toc-the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command&quot;&gt;The most effective way to clean free disk space on a Linux drive is to use the Linux dd utility which is a bit-stream duplicator. Open up a terminal window and type the following command:&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive&quot; id=&quot;markdown-toc-this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive&quot;&gt;This command will zero-fill any free disk space on the virtual Linux drive.&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device&quot; id=&quot;markdown-toc-once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device&quot;&gt;Once the dd has completed, you will see a message in your terminal window indicating that there is no space left on the device:&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#you-can-now-remove-zerofillfile-using-the-linux-rm-utility&quot; id=&quot;markdown-toc-you-can-now-remove-zerofillfile-using-the-linux-rm-utility&quot;&gt;You can now remove zerofillfile using the Linux rm utility:&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-3-shutdown-the-linux-virtual-machine&quot; id=&quot;markdown-toc-step-3-shutdown-the-linux-virtual-machine&quot;&gt;Step 3: Shutdown the Linux Virtual Machine&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-4-compact-the-linux-guest-image&quot; id=&quot;markdown-toc-step-4-compact-the-linux-guest-image&quot;&gt;Step 4: Compact the Linux guest image&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt&quot; id=&quot;markdown-toc-to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt&quot;&gt;To compact the Linux guest image, use the VirtualBox VBoxManage utility. Assuming a Windows host, use the following command at the DOS prompt:&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters&quot; id=&quot;markdown-toc-ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters&quot;&gt;Ensure that you replace the items in square brackets with your parameters.&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows&quot; id=&quot;markdown-toc-if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows&quot;&gt;If your Windows host complains that VBoxManage cannot be found or is an invalid command, you may need to explicitly specify the path to the VirtualBox executables. So a complete example for compacting a Linux guest image at the DOS prompt is as follows:&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file&quot; id=&quot;markdown-toc-once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file&quot;&gt;Once the VirtualBox VBoxManage utility is running you will see progress indicators in 10% increments starting from 0% to 100%. And once the process is complete, you should have a smaller disk image file&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;step-1-start-the-linux-virtual-machine&quot;&gt;Step 1: Start the Linux Virtual Machine&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Start the Linux Virtual Machine and log in with administrative rights.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;step-2-clean-any-free-disk-space&quot;&gt;Step 2: Clean any free disk space&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command&quot;&gt;The most effective way to clean free disk space on a Linux drive is to use the Linux dd utility which is a bit-stream duplicator. Open up a terminal window and type the following command:&lt;/h3&gt;
+
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dd if=/dev/zero of=zerofillfile bs=1M&lt;/code&gt;
+
+&lt;h2 id=&quot;this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive&quot;&gt;This command will zero-fill any free disk space on the virtual Linux drive.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; specifies the input file&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    /dev/zero indicates a bit-stream of zeros
+    &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; specifies the output file
+    zerofillfile name of the file containing the bit-stream of zeros
+    &lt;span class=&quot;nv&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; indicates the block size
+    1M indicates that the block size will be 1 megabyte
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device&quot;&gt;Once the dd has completed, you will see a message in your terminal window indicating that there is no space left on the device:&lt;/h2&gt;
+
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dd: writing 'zerofillfile': No space left on device&lt;/code&gt;
+
+&lt;h2 id=&quot;you-can-now-remove-zerofillfile-using-the-linux-rm-utility&quot;&gt;You can now remove zerofillfile using the Linux rm utility:&lt;/h2&gt;
+
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rm zerofillfile&lt;/code&gt;
+
+&lt;h1 id=&quot;step-3-shutdown-the-linux-virtual-machine&quot;&gt;Step 3: Shutdown the Linux Virtual Machine&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;End your session and shutdown the Linux Virtual Machine.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;step-4-compact-the-linux-guest-image&quot;&gt;Step 4: Compact the Linux guest image&lt;/h1&gt;
+
+&lt;h2 id=&quot;to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt&quot;&gt;To compact the Linux guest image, use the VirtualBox VBoxManage utility. Assuming a Windows host, use the following command at the DOS prompt:&lt;/h2&gt;
+
+&lt;code class=&quot;highlighter-rouge&quot;&gt;VBoxManage modifyhd --compact &quot;[drive]:\[path_to_image_file]\[name_of_image_file].vdi&quot;&lt;/code&gt;
+
+&lt;h2 id=&quot;ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters&quot;&gt;Ensure that you replace the items in square brackets with your parameters.&lt;/h2&gt;
+
+&lt;h2 id=&quot;if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows&quot;&gt;If your Windows host complains that VBoxManage cannot be found or is an invalid command, you may need to explicitly specify the path to the VirtualBox executables. So a complete example for compacting a Linux guest image at the DOS prompt is as follows:&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt; path C:&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;rogram Files&lt;span class=&quot;se&quot;&gt;\O&lt;/span&gt;racle&lt;span class=&quot;se&quot;&gt;\V&lt;/span&gt;irtualBox
+    C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt; VBoxManage modifyhd &lt;span class=&quot;nt&quot;&gt;--compact&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;etreliant_VMs&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;inux_001.vdi&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file&quot;&gt;Once the VirtualBox VBoxManage utility is running you will see progress indicators in 10% increments starting from 0% to 100%. And once the process is complete, you should have a smaller disk image file&lt;/h2&gt;
+</description>
+        <pubDate>Tue, 24 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/24/Compacting-VirtualBox-Disk-Images-Linux-Guests/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/24/Compacting-VirtualBox-Disk-Images-Linux-Guests/</guid>
+        
+        <category>VirtualBox</category>
+        
+        <category>Linux</category>
+        
+        
+        <category>Operation</category>
+        
+      </item>
+    
+      <item>
+        <title>Add new user</title>
+        <description>
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;建立一个新的用户包括两个步骤，1)使用useradd命令完成一个新用户的初始化设置工作; 2)用passwd为这个新用户设置密码。
+
+	useradd floatboat &amp;lt;回车&amp;gt;
+	passwd floatboat &amp;lt;回车&amp;gt;  
+
+1、useradd所做的初始化操作已经包括在/home目录下为floatboat帐号建立一个名为floatboat的主目录。
+如果你不想使用这个缺省的目录，而希望把他的主目录放在/home/goal里，可以使用useradd的参数-d，命令如下：
+
+useradd -d /home/goal floatboat
+
+2、useradd的初始化操作还包括为用户单独建立一个与用户名同名的组(floatboat组)。这叫用户私有组的机制，与默认组机制相对应。
+对用户分组一是方便管理，二是可以明确权限。我们如果想让此用户加入一个已有的组的话，可以使用-g参数。
+例如我们想让floatboat加入webusers组，那么可以使用以下命令：
+
+useradd -g webusers floatboat
+
+同样的，我们还可以使用-G参数使他同时加入多个组，例如webusers和ftpusers：
+
+useradd -G ftpusers,webusers floatboat
+
+3、passwd命令为一个用户设置密码，但它实质上是一个修改密码的程序。
+
+4、你在增加一个新用户的时候，也可以设置用户登录的shell。缺省的，系统提供了/bin/bash。可以使用-s参数就可以指定。例如
+
+useradd -d /www -s /usr/bin/passwd floatboat
+
+这些参数是可以一块使用的，如上例所示，它表示增加新用户，并把其主目录路径设置在/www，登录的shell为/usr/bin/passwd。
+	
+5、删除一个用户可以使用userdel命令，直接带用户名做参数就可以了。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 24 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/24/Add-new-user/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/24/Add-new-user/</guid>
+        
+        <category>Linux</category>
+        
+        
+        <category>Operation</category>
+        
+      </item>
+    
+      <item>
+        <title>Work with more accounts in Github</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#cancel-the-global-setting&quot; id=&quot;markdown-toc-cancel-the-global-setting&quot;&gt;Cancel the global setting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#setup-the-useremail-for-each-repo&quot; id=&quot;markdown-toc-setup-the-useremail-for-each-repo&quot;&gt;Setup the user.email for each repo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;cancel-the-global-setting&quot;&gt;Cancel the global setting&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--unset&lt;/span&gt; user.name
+    git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--unset&lt;/span&gt; user.email
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;setup-the-useremail-for-each-repo&quot;&gt;Setup the user.email for each repo&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    git config  user.email &lt;span class=&quot;s2&quot;&gt;&quot;xxxx@xx.com&quot;&lt;/span&gt;
+    git config  user.name &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Mon, 16 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/16/Work-with-more-accounts-in-github/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/16/Work-with-more-accounts-in-github/</guid>
+        
+        <category>git</category>
+        
+        
+        <category>Miscellaneous</category>
+        
+      </item>
+    
+  </channel>
+</rss>

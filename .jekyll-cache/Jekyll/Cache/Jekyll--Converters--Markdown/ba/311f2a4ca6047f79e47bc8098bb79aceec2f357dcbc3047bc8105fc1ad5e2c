@@ -1,0 +1,128 @@
+I"É<ul id="markdown-toc">
+  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
+  <li><a href="#host-information" id="markdown-toc-host-information">Host information</a></li>
+  <li><a href="#steps-to-demostrate-service-discovery-and-registrator" id="markdown-toc-steps-to-demostrate-service-discovery-and-registrator">Steps to demostrate service discovery and registrator</a></li>
+</ul>
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<ul>
+  <li>Should have an etcd server <code class="highlighter-rouge">$etcd_host</code> or cluster available.</li>
+  <li>Should have a host <code class="highlighter-rouge">$service_host</code> for backend service and registrator should running on it.</li>
+  <li>Should have a host <code class="highlighter-rouge">$proxy_host</code> for nginx as reverse proxy.</li>
+</ul>
+
+<h1 id="host-information">Host information</h1>
+
+<ul>
+  <li>The following 3 host can be the same, like <code class="highlighter-rouge">localhost</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$etcd_host</span> <span class="o">=</span>  x.x.x.x:2379
+    <span class="nv">$service_host</span> <span class="o">=</span> xxx.com
+    <span class="nv">$proxy_host</span> <span class="o">=</span> yyy.com
+</code></pre></div></div>
+
+<h1 id="steps-to-demostrate-service-discovery-and-registrator">Steps to demostrate service discovery and registrator</h1>
+
+<ul>
+  <li>Build the images for nginx and the env-info project</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">cd </span>project/nginx-discovery
+    <span class="nb">sudo </span>docker build <span class="nb">.</span> <span class="nt">-t</span> nginx-discovery
+    <span class="nb">cd </span>reading-env-info
+    <span class="nb">sudo </span>docker build <span class="nb">.</span> <span class="nt">-t</span> reading-env-info <span class="o">(</span><span class="c"># NOTE: Only if jenkins item not work)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Run the nginx container for service discovery
+  <code class="highlighter-rouge">sudo docker run -d -p 80:80 --name nginx-micros nginx-discovery</code></p>
+  </li>
+  <li>
+    <p>Prepare environment and ensure at least 1 backend service running.</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ssh <span class="nv">$service_host</span>
+    <span class="nb">sudo </span>docker ps <span class="nt">-a</span> | <span class="nb">grep </span>reading-env-info
+    <span class="nb">sudo </span>docker <span class="nb">rm</span> <span class="nt">-f</span> container-id <span class="c">#optional: ensure keep at least 1 container alive</span>
+    <span class="nb">sudo </span>docker run <span class="nt">-dP</span> reading-env-info:Build2 <span class="c">#optional</span>
+    <span class="nb">sudo </span>docker ps <span class="nt">-a</span> | <span class="nb">grep </span>reading-env-info <span class="c">#note down the port</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Display the current webpage and note down the current host info and etcd value.</p>
+
+    <ul>
+      <li>Open <a href="http://$service_host:port">http://$service_host:port</a> and note down the host info and etcd info</li>
+      <li>Open <a href="http://$proxy_host/">http://$proxy_host/</a> to ensure it is exactly the same with $service_host</li>
+    </ul>
+  </li>
+  <li>
+    <p>Refresh the webpage to ensure no change.</p>
+
+    <ul>
+      <li>Reload <a href="http://$proxy_host/">http://$proxy_host/</a> several times to ensure no change.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Change the etcd value to show the configuration center.</p>
+
+    <p><code class="highlighter-rouge">curl -X PUT http://$etcd_host/v2/keys/reading-env-info/message -d value="new value"</code></p>
+  </li>
+  <li>
+    <p>Open the URL to verify the result.</p>
+
+    <ul>
+      <li>Open <a href="http://$proxy_host/">http://$proxy_host/</a> to ensure the 2nd line(<code class="highlighter-rouge">Value from etcd</code>) updated to new value.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Add the containers to show the service registration.</p>
+
+    <ul>
+      <li>
+        <p>On $service_host, run following cmd several times for more containers</p>
+
+        <p><code class="highlighter-rouge">sudo docker run -dP reading-env-info:Build2</code></p>
+      </li>
+      <li>
+        <p>Get the port# of the backend services</p>
+
+        <p><code class="highlighter-rouge">sudo docker ps -a | grep reading-env-info(note down the port)</code></p>
+      </li>
+      <li>
+        <p>Open the URL to verify the result</p>
+
+        <ul>
+          <li>open <a href="http://$service_host:port">http://$service_host:port</a> and note down the host info</li>
+          <li>open <a href="http://$proxy_host/">http://$proxy_host/</a> and reload several times to ensure it is exactly the same with $service_host</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Reduce the containers to show the un-registration.</p>
+
+    <ul>
+      <li>On $service_host, run the following cmd to get the container ID.
+<code class="highlighter-rouge">sudo docker ps -a | grep reading-env-info(note down the container ID/name)</code></li>
+      <li>Repeat following cmd several times and ensure at least 1 container left.
+<code class="highlighter-rouge">sudo docker rm -f container_ID/name</code></li>
+      <li>Check the port# of the backend services
+<code class="highlighter-rouge">sudo docker ps -a | grep reading-env-info(note down the port)</code></li>
+      <li>Verify the result.
+        <ul>
+          <li>Open <a href="http://$service_host:port">http://$service_host:port</a> and note down the host info</li>
+          <li>Open <a href="http://$proxy_host/">http://$proxy_host/</a> and reload several times to ensure it is exactly the same with $service_host</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>NOTE: The interval of refresh is setting as 10 seconds.</strong></p>
+:ET

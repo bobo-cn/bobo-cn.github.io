@@ -1,0 +1,54 @@
+I"�<ul id="markdown-toc">
+  <li><a href="#what-is-jenkins-pipeline" id="markdown-toc-what-is-jenkins-pipeline">What is Jenkins Pipeline?</a></li>
+</ul>
+
+<h1 id="what-is-jenkins-pipeline">What is Jenkins Pipeline?</h1>
+
+<p>Jenkins Pipeline (or simply “Pipeline” with a capital “P”) is a suite of plugins which supports implementing and integrating continuous delivery pipelines into Jenkins.</p>
+
+<p>Pipeline provides an extensible set of tools for modeling simple-to-complex delivery pipelines “as code” via the <a href="https://jenkins.io/doc/book/pipeline/syntax/">Pipeline Domain Specific Language (DSL) syntax</a>.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">pipeline</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">agent</span><span class="w"> </span><span class="err">any</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Will</span><span class="w"> </span><span class="err">triggered</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">setting</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">Jenkins.</span><span class="w">
+    </span><span class="err">//</span><span class="w">  </span><span class="err">triggers</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w">     </span><span class="err">pollSCM('H/</span><span class="mi">5</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">*')</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="err">stages</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">stage('Clean')</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="err">steps</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">deleteDir()</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">  
+   </span><span class="err">stage('check</span><span class="w"> </span><span class="err">out')</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">steps</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">checkout(</span><span class="p">[</span><span class="err">$class:</span><span class="w"> </span><span class="err">'GitSCM'</span><span class="p">,</span><span class="w"> </span><span class="err">branches:</span><span class="w"> </span><span class="p">[[</span><span class="err">name:</span><span class="w"> </span><span class="err">'*/master'</span><span class="p">]],</span><span class="w"> </span><span class="err">doGenerateSubmoduleConfigurations:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="err">extensions:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">submoduleCfg:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">userRemoteConfigs:</span><span class="w"> </span><span class="p">[[</span><span class="err">credentialsId:</span><span class="w"> </span><span class="err">'credential-stored-in-Jenkins'</span><span class="p">,</span><span class="w"> </span><span class="err">url:</span><span class="w"> </span><span class="err">'git@git-repository-name.git'</span><span class="p">]]]</span><span class="err">)</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+    
+</span><span class="p">}</span><span class="w">
+</span><span class="err">stage('Build')</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">steps</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="err">withEnv(</span><span class="p">[</span><span class="err">'INVALID_IMAGE_NUMBER=$(($BUILD_NUMBER</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="mi">3</span><span class="err">))'</span><span class="p">,</span><span class="w"> </span><span class="err">'INVALID_IMAGE_NUMBER=$INVALID_IMAGE_NUMBER'</span><span class="p">,</span><span class="w"> </span><span class="err">'DB_TEST=Y'</span><span class="p">]</span><span class="err">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">sh</span><span class="w"> </span><span class="err">'./gradlew</span><span class="w"> </span><span class="err">clean</span><span class="w"> </span><span class="err">sonarqube</span><span class="w"> </span><span class="err">build</span><span class="w"> </span><span class="err">-Dsonar.host.url=http://sonar-host-name/</span><span class="w"> </span><span class="err">-Dsonar.verbose=</span><span class="kc">true</span><span class="err">'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">sshagent(</span><span class="p">[</span><span class="err">'ssh-credential-stored-in-Jenkins'</span><span class="p">]</span><span class="err">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="err">sh</span><span class="w"> </span><span class="err">'''</span><span class="w">
+     </span><span class="err">ssh</span><span class="w"> </span><span class="err">-o</span><span class="w"> </span><span class="err">StrictHostKeyChecking=no</span><span class="w"> </span><span class="err">-l</span><span class="w"> </span><span class="err">jenkins</span><span class="w"> </span><span class="err">target-host-name</span><span class="w"> </span><span class="s2">"
+     uname -a;</span><span class="err">\</span><span class="s2">
+     uname -a;</span><span class="err">\</span><span class="s2">
+     uname -a"</span><span class="w">
+     </span><span class="err">uname</span><span class="w"> </span><span class="err">-a</span><span class="w">
+     </span><span class="err">'''</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+    
+
+    </span><span class="p">}}</span><span class="w">
+    
+   
+
+
+</span></code></pre></div></div>
+:ET

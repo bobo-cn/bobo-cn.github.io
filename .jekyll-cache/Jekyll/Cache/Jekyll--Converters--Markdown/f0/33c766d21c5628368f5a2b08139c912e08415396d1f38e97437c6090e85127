@@ -1,0 +1,196 @@
+I"Ÿ4<ul id="markdown-toc">
+  <li><a href="#setup-etcd-from-docker-imagequayiocoreosetcdlatest" id="markdown-toc-setup-etcd-from-docker-imagequayiocoreosetcdlatest">Setup etcd from docker image(quay.io/coreos/etcd:latest)</a></li>
+  <li><a href="#setup-registrator-from-docker-imagegliderlabsregistrator" id="markdown-toc-setup-registrator-from-docker-imagegliderlabsregistrator">Setup registrator from docker image(gliderlabs/registrator)</a></li>
+  <li><a href="#setup-confd-to-sync-with-etcd" id="markdown-toc-setup-confd-to-sync-with-etcd">Setup confd to sync with etcd</a>    <ul>
+      <li><a href="#download-confd-and-export-it-to-path" id="markdown-toc-download-confd-and-export-it-to-path">Download confd and export it to path</a></li>
+      <li><a href="#create-the-directory-for-configuration-and-template" id="markdown-toc-create-the-directory-for-configuration-and-template">Create the directory for configuration and template</a></li>
+      <li><a href="#create-a-template-resource-config" id="markdown-toc-create-a-template-resource-config">Create a template resource config</a></li>
+      <li><a href="#create-the-source-template" id="markdown-toc-create-the-source-template">Create the source template</a></li>
+      <li><a href="#setup-the-etcd-with-proper-value" id="markdown-toc-setup-the-etcd-with-proper-value">Setup the etcd with proper value</a></li>
+      <li><a href="#process-the-template-and-verify-the-result" id="markdown-toc-process-the-template-and-verify-the-result">Process the template and verify the result</a></li>
+    </ul>
+  </li>
+  <li><a href="#setup-nginx" id="markdown-toc-setup-nginx">Setup nginx</a>    <ul>
+      <li><a href="#get-the-nginx-image" id="markdown-toc-get-the-nginx-image">Get the nginx image</a></li>
+      <li><a href="#please-refer-part-2-to-establish-the-environment" id="markdown-toc-please-refer-part-2-to-establish-the-environment">Please refer Part 2 to establish the environment</a></li>
+    </ul>
+  </li>
+  <li><a href="#file-list" id="markdown-toc-file-list">File list</a></li>
+</ul>
+
+<h1 id="setup-etcd-from-docker-imagequayiocoreosetcdlatest">Setup etcd from docker image(quay.io/coreos/etcd:latest)</h1>
+
+<ul>
+  <li>Create a container providing etcd service</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    docker run <span class="nt">-p</span> 2379:2379 <span class="nt">-p</span> 2380:2380 <span class="nt">--volume</span><span class="o">=</span>/micros/micros/volume/etcd/node1:/etcd-data <span class="nt">--name</span>     etcd quay.io/coreos/etcd:latest /usr/local/bin/etcd <span class="nt">--data-dir</span><span class="o">=</span>/etcd-data <span class="nt">--name</span> node1     <span class="nt">--initial-advertise-peer-urls</span> http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2380 <span class="nt">--listen-peer-urls</span> http://0.0.0.0:2380     <span class="nt">--advertise-client-urls</span> http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379 <span class="nt">--listen-client-urls</span> http://0.0.0.0:2379     <span class="nt">--initial-cluster</span> <span class="nv">node1</span><span class="o">=</span>http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2380
+</code></pre></div></div>
+
+<ul>
+  <li>Upload key-value to verify the installation
+    <ul>
+      <li>Put the key/value
+<code class="highlighter-rouge">curl -X PUT http://${etcd_host}:2379/v2/keys/message -d value="Hello1"</code></li>
+      <li>Get the value by key
+<code class="highlighter-rouge">curl http://${etcd_host}:2379/v2/keys/message</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="setup-registrator-from-docker-imagegliderlabsregistrator">Setup registrator from docker image(gliderlabs/registrator)</h1>
+
+<ul>
+  <li>Start a registrator service base on etcd which root key is resources</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    docker run <span class="nt">-d</span> <span class="nt">--name</span><span class="o">=</span>registrator <span class="nt">--net</span><span class="o">=</span>host <span class="nt">--volume</span><span class="o">=</span>/var/run/docker.sock:/tmp/docker.sock     gliderlabs/registrator:latest etcd://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379/resources
+</code></pre></div></div>
+
+<ul>
+  <li>Start a registrator service base on consul</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    docker run <span class="nt">-d</span> <span class="se">\</span>
+        <span class="nt">--name</span><span class="o">=</span>registrator <span class="se">\</span>
+        <span class="nt">--net</span><span class="o">=</span>host <span class="se">\</span>
+        <span class="nt">--volume</span><span class="o">=</span>/var/run/docker.sock:/tmp/docker.sock <span class="se">\</span>
+        gliderlabs/registrator:latest <span class="se">\</span>
+          consul://localhost:8500
+</code></pre></div></div>
+
+<h1 id="setup-confd-to-sync-with-etcd">Setup confd to sync with etcd</h1>
+
+<h2 id="download-confd-and-export-it-to-path">Download confd and export it to path</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    wget https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64
+    <span class="nb">mkdir</span> <span class="nt">-p</span> /opt/confd/bin
+    <span class="nb">mv </span>confd-0.14.0-linux-amd64 /opt/confd/bin/confd
+    <span class="nb">chmod</span> +x /opt/confd/bin/confd
+    <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:/opt/confd/bin"</span>
+</code></pre></div></div>
+
+<h2 id="create-the-directory-for-configuration-and-template">Create the directory for configuration and template</h2>
+
+<p><code class="highlighter-rouge">sudo mkdir -p /etc/confd/{conf.d,templates}    #confdir</code></p>
+
+<h2 id="create-a-template-resource-config">Create a template resource config</h2>
+
+<ul>
+  <li>/etc/confd/conf.d/myconfig.toml    #Template resources are defined in TOML config files under the confdir.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">[</span>template]
+    src <span class="o">=</span> <span class="s2">"myconfig.conf.tmpl"</span>
+    dest <span class="o">=</span> <span class="s2">"/tmp/myconfig.conf"</span>
+    keys <span class="o">=</span> <span class="o">[</span>
+        <span class="s2">"/myapp/database/url"</span>,
+        <span class="s2">"/myapp/database/user"</span>,
+    <span class="o">]</span>
+</code></pre></div></div>
+
+<h2 id="create-the-source-template">Create the source template</h2>
+
+<p>/etc/confd/templates/myconfig.conf.tmpl    #Source templates are Golang text templates.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="p">[</span><span class="n">myconfig</span><span class="p">]</span>
+    <span class="n">database_url</span> <span class="o">=</span> <span class="p">{</span><span class="err">\</span><span class="p">{</span><span class="n">getv</span> <span class="s">"/myapp/database/url"</span><span class="p">}</span><span class="err">\</span><span class="p">}</span>
+    <span class="n">database_user</span> <span class="o">=</span> <span class="p">{</span><span class="err">\</span><span class="p">{</span><span class="n">getv</span> <span class="s">"/myapp/database/user"</span><span class="err">\</span><span class="p">}}</span>
+</code></pre></div></div>
+
+<h2 id="setup-the-etcd-with-proper-value">Setup the etcd with proper value</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    curl <span class="nt">-X</span> PUT http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379/v2/keys/myapp/database/url <span class="nt">-d</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"db.example.com"</span>
+    curl <span class="nt">-X</span> PUT http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379/v2/keys/myapp/database/user <span class="nt">-d</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"rob"</span>
+</code></pre></div></div>
+
+<h2 id="process-the-template-and-verify-the-result">Process the template and verify the result</h2>
+
+<ul>
+  <li>confd supports two modes of operation daemon and onetime. In daemon mode confd polls a backend for changes and updates destination configuration files if necessary.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$ </span>confd <span class="nt">-onetime</span> <span class="nt">-backend</span> etcd <span class="nt">-node</span> http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379/
+
+    2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf out of <span class="nb">sync
+    </span>2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf has been updated
+The dest configuration file should now be <span class="k">in </span>sync.
+
+    <span class="nv">$ </span><span class="nb">cat</span> /tmp/myconfig.conf
+
+    <span class="o">[</span>myconfig]
+    database_url <span class="o">=</span> db.example.com
+    database_user <span class="o">=</span> rob
+</code></pre></div></div>
+
+<h1 id="setup-nginx">Setup nginx</h1>
+
+<h2 id="get-the-nginx-image">Get the nginx image</h2>
+
+<p><code class="highlighter-rouge">docker pull nginx:stable</code></p>
+
+<h2 id="please-refer-part-2-to-establish-the-environment">Please refer Part 2 to establish the environment</h2>
+
+<h1 id="file-list">File list</h1>
+
+<ul>
+  <li>startup</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+confd <span class="nt">-onetime</span> <span class="nt">-sync-only</span> <span class="nt">-backend</span> etcd <span class="nt">-node</span> http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379/
+<span class="nb">sleep </span>5
+confd <span class="nt">-interval</span> 10 <span class="nt">-backend</span> etcd <span class="nt">-node</span> http://<span class="k">${</span><span class="nv">etcd_host</span><span class="k">}</span>:2379/ &amp;
+nginx <span class="nt">-g</span> <span class="s2">"daemon off;"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>default.conf</li>
+</ul>
+
+<div class="language-config highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">location</span> / {
+        <span class="c">#root   /usr/share/nginx/html;
+</span>        <span class="c">#index  index.html index.htm;
+</span>        <span class="n">proxy_pass</span> <span class="n">http</span>://<span class="n">myapp1</span>;
+    }
+</code></pre></div></div>
+
+<ul>
+  <li>myconfig.conf.tmpl</li>
+</ul>
+
+<div class="language-config highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">upstream</span> <span class="n">myapp1</span> {
+        {\{<span class="n">range</span> <span class="n">getvs</span> <span class="s2">"/resources/reading-env-info/*"</span>}\}
+        <span class="n">server</span> ${<span class="n">service_host</span>}{\{.}\};
+        {\{<span class="n">end</span>}\}
+}
+</code></pre></div></div>
+
+<ul>
+  <li>myconfig.toml</li>
+</ul>
+
+<div class="language-config highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">template</span>]
+<span class="n">src</span> = <span class="s2">"myconfig.conf.tmpl"</span>
+<span class="n">dest</span> = <span class="s2">"/etc/nginx/conf.d/upstream.conf"</span>
+<span class="n">keys</span> = [
+    <span class="s2">"/resources/reading-env-info/"</span>,
+]
+<span class="n">reload_cmd</span> = <span class="s2">"nginx -s reload"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Dockerfile</li>
+</ul>
+
+<div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> nginx:stable</span>
+<span class="c"># ADD https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64 /usr/local/bin/confd</span>
+<span class="k">ADD</span><span class="s"> confd-0.14.0-linux-amd64 /usr/local/bin/confd</span>
+<span class="k">ADD</span><span class="s"> startup /usr/local/bin/startup</span>
+<span class="k">RUN </span><span class="nb">chmod</span> +x /usr/local/bin/startup <span class="o">&amp;&amp;</span> <span class="nb">chmod</span> +x /usr/local/bin/confd <span class="o">&amp;&amp;</span> <span class="nb">mkdir</span> <span class="nt">-p</span> /etc/confd/<span class="o">{</span>conf.d,templates<span class="o">}</span>
+<span class="k">ADD</span><span class="s"> myconfig.toml /etc/confd/conf.d/myconfig.toml</span>
+<span class="k">ADD</span><span class="s"> myconfig.conf.tmpl /etc/confd/templates/myconfig.conf.tmpl</span>
+<span class="k">ADD</span><span class="s"> default.conf /etc/nginx/conf.d</span>
+<span class="k">CMD</span><span class="s"> ["/bin/bash", "startup"]</span>
+</code></pre></div></div>
+:ET

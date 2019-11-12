@@ -1,0 +1,27 @@
+I"><ul id="markdown-toc">
+  <li><a href="#generate-ssh-key" id="markdown-toc-generate-ssh-key">Generate SSH key</a></li>
+  <li><a href="#create-a-user-in-target-env-and-authenticate-by-public-key" id="markdown-toc-create-a-user-in-target-env-and-authenticate-by-public-key">Create a user in target env and authenticate by public key</a></li>
+  <li><a href="#save-the-private-key-to-jenkins-and-called-by-pipeline" id="markdown-toc-save-the-private-key-to-jenkins-and-called-by-pipeline">Save the private key to Jenkins and called by pipeline</a></li>
+</ul>
+
+<h3 id="generate-ssh-key">Generate SSH key</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+</code></pre></div></div>
+
+<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a></p>
+
+<h3 id="create-a-user-in-target-env-and-authenticate-by-public-key">Create a user in target env and authenticate by public key</h3>
+<ul>
+  <li><code class="highlighter-rouge">useradd username</code></li>
+  <li><code class="highlighter-rouge">cd etc/ssh</code></li>
+  <li><code class="highlighter-rouge">cp sshd_configure sshd_configure.backup</code></li>
+  <li>enable the public key authentication</li>
+  <li><code class="highlighter-rouge">service sshd restart</code></li>
+  <li><code class="highlighter-rouge">service sshd status</code></li>
+  <li><code class="highlighter-rouge">vim ~/.ssh/authorized_keys</code></li>
+  <li>append the public key to the keys file</li>
+  <li><code class="highlighter-rouge">usermod -a -G groupname username</code></li>
+</ul>
+
+<h3 id="save-the-private-key-to-jenkins-and-called-by-pipeline">Save the private key to Jenkins and called by pipeline</h3>
+:ET

@@ -1,0 +1,132 @@
+I"4<ul id="markdown-toc">
+  <li><a href="#running-a-single-node-etcd" id="markdown-toc-running-a-single-node-etcd">Running a single node etcd</a></li>
+  <li><a href="#running-a-3-node-etcd-cluster" id="markdown-toc-running-a-3-node-etcd-cluster">Running a 3 node etcd cluster</a></li>
+  <li><a href="#to-run-etcdctl-using-api-version-3" id="markdown-toc-to-run-etcdctl-using-api-version-3">To run etcdctl using API version 3:</a></li>
+  <li><a href="#mounting-a-certificate-volume" id="markdown-toc-mounting-a-certificate-volume">Mounting a certificate volume</a></li>
+  <li><a href="#put-and-get-the-key-value-from-etcd" id="markdown-toc-put-and-get-the-key-value-from-etcd">Put and get the key value from etcd</a></li>
+  <li><a href="#note" id="markdown-toc-note">NOTE:</a></li>
+</ul>
+
+<p>In order to expose the etcd API to clients outside of Docker host, use the host IP address of the container. Please see docker inspect for more detail on how to get the IP address. Alternatively, specify <code class="highlighter-rouge">--net=host</code> flag to docker run command to skip placing the container inside of a separate network stack.</p>
+
+<h3 id="running-a-single-node-etcd">Running a single node etcd</h3>
+
+<p>Use the host IP address when configuring etcd:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export NODE1=192.168.1.21
+</code></pre></div></div>
+
+<p>Run the latest version of etcd:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run \
+-p 2379:2379 \
+-p 2380:2380 \
+--volume=${DATA_DIR}:/etcd-data \
+--name etcd quay.io/coreos/etcd:latest \
+/usr/local/bin/etcd \
+--data-dir=/etcd-data --name node1 \
+--initial-advertise-peer-urls http://${NODE1}:2380 --listen-peer-urls http://${NODE1}:2380 \
+--advertise-client-urls http://${NODE1}:2379 --listen-client-urls http://${NODE1}:2379 \
+--initial-cluster node1=http://${NODE1}:2380
+</code></pre></div></div>
+
+<p>List the cluster member:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>etcdctl --endpoints=http://${NODE1}:2379 member list
+</code></pre></div></div>
+
+<h3 id="running-a-3-node-etcd-cluster">Running a 3 node etcd cluster</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># For each machine
+ETCD_VERSION=latest
+TOKEN=my-etcd-token
+CLUSTER_STATE=new
+NAME_1=etcd-node-0
+NAME_2=etcd-node-1
+NAME_3=etcd-node-2
+HOST_1=10.20.30.1
+HOST_2=10.20.30.2
+HOST_3=10.20.30.3
+CLUSTER=${NAME_1}=http://${HOST_1}:2380,${NAME_2}=http://${HOST_2}:2380,${NAME_3}=http://${HOST_3}:2380
+DATA_DIR=/var/lib/etcd
+
+# For node 1
+THIS_NAME=${NAME_1}
+THIS_IP=${HOST_1}
+docker run \
+-p 2379:2379 \
+-p 2380:2380 \
+--volume=${DATA_DIR}:/etcd-data \
+--name etcd quay.io/coreos/etcd:${ETCD_VERSION} \
+/usr/local/bin/etcd \
+--data-dir=/etcd-data --name ${THIS_NAME} \
+--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+--initial-cluster ${CLUSTER} \
+--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+
+# For node 2
+THIS_NAME=${NAME_2}
+THIS_IP=${HOST_2}
+docker run \
+-p 2379:2379 \
+-p 2380:2380 \
+--volume=${DATA_DIR}:/etcd-data \
+--name etcd quay.io/coreos/etcd:${ETCD_VERSION} \
+/usr/local/bin/etcd \
+--data-dir=/etcd-data --name ${THIS_NAME} \
+--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+--initial-cluster ${CLUSTER} \
+--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+
+# For node 3
+THIS_NAME=${NAME_3}
+THIS_IP=${HOST_3}
+docker run \
+-p 2379:2379 \
+-p 2380:2380 \
+--volume=${DATA_DIR}:/etcd-data \
+--name etcd quay.io/coreos/etcd:${ETCD_VERSION} \
+/usr/local/bin/etcd \
+--data-dir=/etcd-data --name ${THIS_NAME} \
+--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+--initial-cluster ${CLUSTER} \
+--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+</code></pre></div></div>
+
+<h3 id="to-run-etcdctl-using-api-version-3">To run etcdctl using API version 3:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec etcd /bin/sh -c "export ETCDCTL_API=3 &amp;&amp; /usr/local/bin/etcdctl put foo bar"
+</code></pre></div></div>
+
+<h3 id="mounting-a-certificate-volume">Mounting a certificate volume</h3>
+
+<p>The etcd release container does not include default root certificates. To use HTTPS with certificates trusted by a root authority (e.g., for discovery), mount a certificate directory into the etcd container:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run \
+-p 2379:2379 \
+-p 2380:2380 \
+--volume=/etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt \
+quay.io/coreos/etcd:latest \
+/usr/local/bin/etcd --name my-name \
+--initial-advertise-peer-urls http://localhost:2380 --listen-peer-urls http://localhost:2380 \
+--advertise-client-urls http://localhost:2379 --listen-client-urls http://localhost:2379 \
+--discovery https://discovery.etcd.io/86a9ff6c8cb8b4c4544c1a2f88f8b801
+</code></pre></div></div>
+
+<h3 id="put-and-get-the-key-value-from-etcd">Put and get the key value from etcd</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl -X PUT http://${HostIP}:2379/v2/keys/message -d value="Hello"
+ curl http://${HostIP}:2379/v2/keys/message
+</code></pre></div></div>
+
+<p>From - <a href="https://coreos.com/etcd/docs/latest/op-guide/container.html#docker">https://coreos.com/etcd/docs/latest/op-guide/container.html#docker</a></p>
+
+<h3 id="note">NOTE:</h3>
+<p>In case hit “cannot assign requested address” issue, please change the “listen-peer-urls” and “listen-client-urls” to 0.0.0.0:2379 or 0.0.0.0:2380. But it will raise a warning -  embed: serving insecure client requests on [::]:2379, this is strongly discouraged!</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -p 2379:2379 -p 2380:2380 --volume=/micros/micros/volume/etcd/node1:/etcd-data --name etcd quay.io/coreos/etcd:latest /usr/local/bin/etcd --data-dir=/etcd-data --name node1 --initial-advertise-peer-urls http://9.37.1.71:2380 --listen-peer-urls http://0.0.0.0:2380 --advertise-client-urls http://9.37.1.71:2379 --listen-client-urls http://0.0.0.0:2379 --initial-cluster node1=http://9.37.1.71:2380
+</code></pre></div></div>
+:ET

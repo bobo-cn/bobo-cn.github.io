@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bo&#39;s Log</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/page2/">
+    <link rel="alternate" type="application/rss+xml" title="Bo's Log" href="http://localhost:4000/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?764707f6d49e89dfc2f713b43fa884ac";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-108516243-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Bo's Log</a>
+        <small>一寸欢喜</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" index>
+    <div class="left">
+        <h1>Welcome to Bo's log!</h1>
+        <small>怕什么真理无穷，进一寸有一寸的欢喜</small>
+        <hr>
+        <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/10/24/Add-new-user/">Add new user</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-10-24
+                    </div>
+                    <div class="label-card">
+                        <i class="fa fa-user"></i>Bo Chen
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Operation" title="Category: Operation" rel="category">Operation</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>建立一个新的用户包括两个步骤，1)使用useradd命令完成一个新用户的初始化设置工作; 2)用passwd为这个新用户设置密码。
+
+	useradd floatboat &lt;回车&gt;
+	passwd floatboat &lt;回车&gt;  
+
+1、useradd所做的初始化操作已经包括在/home目录下为floatboat帐号建立一个名为floatboat的主目录。
+如果你不想使用这个缺省的目录，而希望把他的主目录放在/home/goal里，可以使用useradd的参数-d，命令如下：
+
+useradd -d /home/goal floatboat
+
+2、useradd的初始化操作还包括为用户单独建立一个与用户名同名的组(floatboat组)。这叫用户私有组的机制，与默认组机制相对应。
+对用户分组一是方便管理，二是可以明确权限。我们如果想让此用户加入一个已有的组的话，可以使用-g参数。
+例如我们想让floatboat加入webusers组，那么可以使用以下命令：
+
+useradd -g webusers floatboat
+
+同样的，我们还可以使用-G参数使他同时加入多个组，例如webusers和ftpusers：
+
+useradd -G ftpusers,webusers floatboat
+
+3、passwd命令为一个用户设置密码，但它实质上是一个修改密码的程序。
+
+4、你在增加一个新用户的时候，也可以设置用户登录的shell。缺省的，系统提供了/bin/bash。可以使用-s参数就可以指定。例如
+
+useradd -d /www -s /usr/bin/passwd floatboat
+
+这些参数是可以一块使用的，如上例所示，它表示增加新用户，并把其主目录路径设置在/www，登录的shell为/usr/bin/passwd。
+	
+5、删除一个用户可以使用userdel命令，直接带用户名做参数就可以了。
+</code></pre></div></div>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/10/24/Add-new-user/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/10/16/Work-with-more-accounts-in-github/">Work with more accounts in Github</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-10-16
+                    </div>
+                    <div class="label-card">
+                        <i class="fa fa-user"></i>Bo Chen
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Miscellaneous" title="Category: Miscellaneous" rel="category">Miscellaneous</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#git" title="Tag: git" rel="tag">git</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#cancel-the-global-setting" id="markdown-toc-cancel-the-global-setting">Cancel the global setting</a></li>
+  <li><a href="#setup-the-useremail-for-each-repo" id="markdown-toc-setup-the-useremail-for-each-repo">Setup the user.email for each repo</a></li>
+</ul>
+
+<h1 id="cancel-the-global-setting">Cancel the global setting</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git config <span class="nt">--global</span> <span class="nt">--unset</span> user.name
+    git config <span class="nt">--global</span> <span class="nt">--unset</span> user.email
+</code></pre></div></div>
+
+<h1 id="setup-the-useremail-for-each-repo">Setup the user.email for each repo</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git config  user.email <span class="s2">"xxxx@xx.com"</span>
+    git config  user.name <span class="s2">"name"</span>
+</code></pre></div></div>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/10/16/Work-with-more-accounts-in-github/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+        </ul>
+
+
+
+        <!-- Pagination links -->
+        <div class="pagination">
+          
+            <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
+            <a href="/" class="previous"><i class="fa fa-angle-left"></i></a>
+          
+          <span class="page_number ">2/2</span>
+          
+            <span class="next disable"><i class="fa fa-angle-right"></i></span>
+            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
+          
+        </div>
+    </div>
+    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <div class="right">
+        <div class="wrap">
+            <div class="side">
+                <div>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Recent Posts
+                </div>
+                <ul class="content-ul" recent>
+                    
+                        <li><a href="/2018/07/08/Taji-Pot-Recipe/">塔吉锅菜谱</a></li>
+                    
+                        <li><a href="/2018/04/24/How-to-setup-key-in-target-env/">How to setup key pair for Linux</a></li>
+                    
+                        <li><a href="/2017/12/06/Install-Shadowsocks-in-CentOS/">Install Shadowsocks in CentOS</a></li>
+                    
+                        <li><a href="/2017/10/24/Delete-WAS-profile/">Delete WAS profile</a></li>
+                    
+                        <li><a href="/2017/10/24/Compacting-VirtualBox-Disk-Images-Linux-Guests/">Compacting VirtualBox Disk Images - Linux Guests</a></li>
+                    
+                        <li><a href="/2017/10/24/Add-new-user/">Add new user</a></li>
+                    
+                        <li><a href="/2017/10/16/Work-with-more-accounts-in-github/">Work with more accounts in Github</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div class="side ">
+                <div>
+                    <i class="fa fa-th-list"></i>
+                    Categories
+                </div>
+                <ul class="content-ul" cate>
+                    
+                    <li>
+                        <a href="/category/#Miscellaneous" class="categories-list-item" cate="Miscellaneous">
+                            <span class="name">
+                                Miscellaneous
+                            </span>
+                            <span class="badge">3</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Operation" class="categories-list-item" cate="Operation">
+                            <span class="name">
+                                Operation
+                            </span>
+                            <span class="badge">4</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <div class="side">
+                <div>
+                    <i class="fa fa-tags"></i>
+                    Tags
+                </div>
+                <div class="tags-cloud">
+                    
+                    
+                    
+                    
+
+                    
+
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#git" style="font-size: 9pt; color: #999;">git</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Linux" style="font-size: 18pt; color: #000;">Linux</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#VirtualBox" style="font-size: 9pt; color: #999;">VirtualBox</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#WAS" style="font-size: 9pt; color: #999;">WAS</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Misc" style="font-size: 13.5pt; color: #444;">Misc</a>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="side">
+                <div>
+                    <i class="fa fa-external-link"></i>
+                    Links
+                </div>
+                <ul  class="content-ul">
+
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- <script src="/js/scroll.min.js " charset="utf-8"></script> -->
+<!-- <script src="/js/pageContent.js " charset="utf-8"></script> -->
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             一寸欢喜 
+        </p>
+        <p class="contact">
+             
+            <a href="mailto:syeino@sina.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/syeino" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>       
+        </p>
+        <p>
+            本站访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，文章阅读<span id="busuanzi_value_page_pv"></span>次
+        </p>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

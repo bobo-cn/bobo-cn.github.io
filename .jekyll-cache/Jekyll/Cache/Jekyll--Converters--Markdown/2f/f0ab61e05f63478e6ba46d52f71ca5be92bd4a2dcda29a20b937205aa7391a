@@ -1,0 +1,73 @@
+I"a<ul id="markdown-toc">
+  <li><a href="#how-to-associate-ucd-with-jfrog-artifactory" id="markdown-toc-how-to-associate-ucd-with-jfrog-artifactory">How to associate UCD with JFrog Artifactory</a>    <ul>
+      <li><a href="#create-the-appliation-in-ucd" id="markdown-toc-create-the-appliation-in-ucd">Create the appliation in UCD</a></li>
+      <li><a href="#steps-to-verify-the-ucd-application" id="markdown-toc-steps-to-verify-the-ucd-application">Steps to verify the UCD application</a></li>
+    </ul>
+  </li>
+  <li><a href="#how-to-trigger-ucd-deployment-from-jenkins" id="markdown-toc-how-to-trigger-ucd-deployment-from-jenkins">How to trigger UCD deployment from Jenkins</a>    <ul>
+      <li><a href="#install-the-ucd-plugin-in-jenkins-and-setup-the-credential" id="markdown-toc-install-the-ucd-plugin-in-jenkins-and-setup-the-credential">Install the UCD plugin in Jenkins and setup the credential</a></li>
+      <li><a href="#create-a-jenkins-job-for-build-and-upload-the-artifact-to-artifactory" id="markdown-toc-create-a-jenkins-job-for-build-and-upload-the-artifact-to-artifactory">Create a Jenkins job for build and upload the artifact to artifactory</a></li>
+      <li><a href="#add-the-deploy-stage" id="markdown-toc-add-the-deploy-stage">Add the deploy stage</a></li>
+    </ul>
+  </li>
+  <li><a href="#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+<h3 id="how-to-associate-ucd-with-jfrog-artifactory">How to associate UCD with JFrog Artifactory</h3>
+
+<h4 id="create-the-appliation-in-ucd">Create the appliation in UCD</h4>
+
+<ol>
+  <li>Create a component with a proper name.</li>
+  <li>In “Source Configuration Type”, choose “<strong>Artifactory</strong>”.</li>
+  <li>Fill in the other fields.</li>
+  <li>Import the component version.</li>
+  <li>Define the component process.</li>
+  <li>Create an application and add the component to the application.</li>
+  <li>Define the environment and map the agent to the component.</li>
+  <li>Create an Application Process and add a step that deploys the component.</li>
+  <li>Deploy the component</li>
+</ol>
+
+<h4 id="steps-to-verify-the-ucd-application">Steps to verify the UCD application</h4>
+
+<ol>
+  <li>clean the directory /micros/poc/ucd  » <code class="highlighter-rouge">rm tutorial -rf</code></li>
+  <li>duplicate the war file from 1.1 to 1.2 <code class="highlighter-rouge">https://na.artifactory.swg-devops.com/artifactory/webapp/#/artifacts/browse/tree/General/txo-amtools-maven-local/CI-CD-Practice/1.1/CI-CD-Practice.war</code></li>
+  <li>add a version in <code class="highlighter-rouge">UCD  &gt; Home&gt;Components&gt;micros-tutorial &gt;&gt; Versions &gt;&gt; Import new Versions &gt;&gt; 1.2</code></li>
+  <li><code class="highlighter-rouge">application &gt; run</code></li>
+  <li>verify the result &gt; <code class="highlighter-rouge">/micros/poc/ucd/tutorial/target</code></li>
+</ol>
+
+<h3 id="how-to-trigger-ucd-deployment-from-jenkins">How to trigger UCD deployment from Jenkins</h3>
+
+<h4 id="install-the-ucd-plugin-in-jenkins-and-setup-the-credential">Install the UCD plugin in Jenkins and setup the credential</h4>
+<p><code class="highlighter-rouge">IBM UrbanCode Deploy Pipeline (Build Steps) Plugin</code>
+<a href="https://developer.ibm.com/urbancode/plugin/jenkins-2-0/">https://developer.ibm.com/urbancode/plugin/jenkins-2-0/</a></p>
+
+<h4 id="create-a-jenkins-job-for-build-and-upload-the-artifact-to-artifactory">Create a Jenkins job for build and upload the artifact to artifactory</h4>
+
+<h4 id="add-the-deploy-stage">Add the deploy stage</h4>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stage</span><span class="o">(</span><span class="s1">'Deploy'</span><span class="o">){</span>
+        <span class="n">sh</span> <span class="s2">"ls -lah"</span>
+        <span class="n">step</span><span class="o">([</span><span class="n">$class</span><span class="o">:</span> <span class="s1">'UCDeployPublisher'</span><span class="o">,</span>
+            <span class="nl">siteName:</span> <span class="s1">'UCD Server'</span><span class="o">,</span>
+            <span class="nl">deploy:</span> <span class="o">[</span>
+                <span class="n">$class</span><span class="o">:</span> <span class="s1">'com.urbancode.jenkins.plugins.ucdeploy.DeployHelper$DeployBlock'</span><span class="o">,</span>
+                <span class="nl">deployApp:</span> <span class="s1">'Tutorial Application'</span><span class="o">,</span>
+                <span class="nl">deployEnv:</span> <span class="s1">'tutorialDeploy'</span><span class="o">,</span>
+                <span class="nl">deployProc:</span> <span class="s1">'Tutorial App Process'</span><span class="o">,</span>
+                <span class="nl">deployVersions:</span> <span class="s1">'micros-tutorial:build15'</span><span class="o">,</span>
+                <span class="nl">deployOnlyChanged:</span> <span class="kc">false</span>
+            <span class="o">]</span>
+        <span class="o">])</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="references">References</h3>
+
+<p><a href="https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.4/com.ibm.udeploy.tutorial.doc/topics/quickstart_abstract.html">Create a simple helloWorld deployment</a></p>
+
+<p><a href="https://developer.ibm.com/urbancode/2017/07/11/jenkins-pipeline-tutorial/">Jenkins Pipeline Plug-in Tutorial: Component Version Import and Snapshot Deployment</a></p>
+:ET

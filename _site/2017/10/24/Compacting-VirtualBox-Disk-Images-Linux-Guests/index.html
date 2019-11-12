@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Compacting VirtualBox Disk Images - Linux Guests</title>
+    <meta name="description" content="  Step 1: Start the Linux Virtual Machine          Step 2: Clean any free disk space                  The most effective way to clean free disk space on a Li...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/10/24/Compacting-VirtualBox-Disk-Images-Linux-Guests/">
+    <link rel="alternate" type="application/rss+xml" title="Bo's Log" href="http://localhost:4000/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?764707f6d49e89dfc2f713b43fa884ac";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-108516243-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Bo's Log</a>
+        <small>一寸欢喜</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Compacting VirtualBox Disk Images - Linux Guests</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-10-24
+            </div>
+
+            <div class="label-card">
+                <i class="fa fa-user"></i>Internet
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Operation" title="Category: Operation" rel="category">Operation</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#VirtualBox" title="Tag: VirtualBox" rel="tag">VirtualBox</a-->
+        <a href="/tag/#VirtualBox" title="Tag: VirtualBox" rel="tag">VirtualBox</a>&nbsp;
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#step-1-start-the-linux-virtual-machine" id="markdown-toc-step-1-start-the-linux-virtual-machine">Step 1: Start the Linux Virtual Machine</a>    <ul>
+      <li><a href="#step-2-clean-any-free-disk-space" id="markdown-toc-step-2-clean-any-free-disk-space">Step 2: Clean any free disk space</a>        <ul>
+          <li><a href="#the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command" id="markdown-toc-the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command">The most effective way to clean free disk space on a Linux drive is to use the Linux dd utility which is a bit-stream duplicator. Open up a terminal window and type the following command:</a></li>
+        </ul>
+      </li>
+      <li><a href="#this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive" id="markdown-toc-this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive">This command will zero-fill any free disk space on the virtual Linux drive.</a></li>
+      <li><a href="#once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device" id="markdown-toc-once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device">Once the dd has completed, you will see a message in your terminal window indicating that there is no space left on the device:</a></li>
+      <li><a href="#you-can-now-remove-zerofillfile-using-the-linux-rm-utility" id="markdown-toc-you-can-now-remove-zerofillfile-using-the-linux-rm-utility">You can now remove zerofillfile using the Linux rm utility:</a></li>
+    </ul>
+  </li>
+  <li><a href="#step-3-shutdown-the-linux-virtual-machine" id="markdown-toc-step-3-shutdown-the-linux-virtual-machine">Step 3: Shutdown the Linux Virtual Machine</a></li>
+  <li><a href="#step-4-compact-the-linux-guest-image" id="markdown-toc-step-4-compact-the-linux-guest-image">Step 4: Compact the Linux guest image</a>    <ul>
+      <li><a href="#to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt" id="markdown-toc-to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt">To compact the Linux guest image, use the VirtualBox VBoxManage utility. Assuming a Windows host, use the following command at the DOS prompt:</a></li>
+      <li><a href="#ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters" id="markdown-toc-ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters">Ensure that you replace the items in square brackets with your parameters.</a></li>
+      <li><a href="#if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows" id="markdown-toc-if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows">If your Windows host complains that VBoxManage cannot be found or is an invalid command, you may need to explicitly specify the path to the VirtualBox executables. So a complete example for compacting a Linux guest image at the DOS prompt is as follows:</a></li>
+      <li><a href="#once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file" id="markdown-toc-once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file">Once the VirtualBox VBoxManage utility is running you will see progress indicators in 10% increments starting from 0% to 100%. And once the process is complete, you should have a smaller disk image file</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="step-1-start-the-linux-virtual-machine">Step 1: Start the Linux Virtual Machine</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Start the Linux Virtual Machine and log in with administrative rights.
+</code></pre></div></div>
+
+<h2 id="step-2-clean-any-free-disk-space">Step 2: Clean any free disk space</h2>
+
+<h3 id="the-most-effective-way-to-clean-free-disk-space-on-a-linux-drive-is-to-use-the-linux-dd-utility-which-is-a-bit-stream-duplicator-open-up-a-terminal-window-and-type-the-following-command">The most effective way to clean free disk space on a Linux drive is to use the Linux dd utility which is a bit-stream duplicator. Open up a terminal window and type the following command:</h3>
+
+<p><code class="highlighter-rouge">dd if=/dev/zero of=zerofillfile bs=1M</code></p>
+
+<h2 id="this-command-will-zero-fill-any-free-disk-space-on-the-virtual-linux-drive">This command will zero-fill any free disk space on the virtual Linux drive.</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span><span class="o">=</span> specifies the input file<span class="p">;</span>
+    /dev/zero indicates a bit-stream of zeros
+    <span class="nv">of</span><span class="o">=</span> specifies the output file
+    zerofillfile name of the file containing the bit-stream of zeros
+    <span class="nv">bs</span><span class="o">=</span> indicates the block size
+    1M indicates that the block size will be 1 megabyte
+</code></pre></div></div>
+
+<h2 id="once-the-dd-has-completed-you-will-see-a-message-in-your-terminal-window-indicating-that-there-is-no-space-left-on-the-device">Once the dd has completed, you will see a message in your terminal window indicating that there is no space left on the device:</h2>
+
+<p><code class="highlighter-rouge">dd: writing 'zerofillfile': No space left on device</code></p>
+
+<h2 id="you-can-now-remove-zerofillfile-using-the-linux-rm-utility">You can now remove zerofillfile using the Linux rm utility:</h2>
+
+<p><code class="highlighter-rouge">rm zerofillfile</code></p>
+
+<h1 id="step-3-shutdown-the-linux-virtual-machine">Step 3: Shutdown the Linux Virtual Machine</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>End your session and shutdown the Linux Virtual Machine.
+</code></pre></div></div>
+
+<h1 id="step-4-compact-the-linux-guest-image">Step 4: Compact the Linux guest image</h1>
+
+<h2 id="to-compact-the-linux-guest-image-use-the-virtualbox-vboxmanage-utility-assuming-a-windows-host-use-the-following-command-at-the-dos-prompt">To compact the Linux guest image, use the VirtualBox VBoxManage utility. Assuming a Windows host, use the following command at the DOS prompt:</h2>
+
+<p><code class="highlighter-rouge">VBoxManage modifyhd --compact "[drive]:\[path_to_image_file]\[name_of_image_file].vdi"</code></p>
+
+<h2 id="ensure-that-you-replace-the-items-in-square-brackets-with-your-parameters">Ensure that you replace the items in square brackets with your parameters.</h2>
+
+<h2 id="if-your-windows-host-complains-that-vboxmanage-cannot-be-found-or-is-an-invalid-command-you-may-need-to-explicitly-specify-the-path-to-the-virtualbox-executables-so-a-complete-example-for-compacting-a-linux-guest-image-at-the-dos-prompt-is-as-follows">If your Windows host complains that VBoxManage cannot be found or is an invalid command, you may need to explicitly specify the path to the VirtualBox executables. So a complete example for compacting a Linux guest image at the DOS prompt is as follows:</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    C:<span class="se">\&gt;</span> path C:<span class="se">\P</span>rogram Files<span class="se">\O</span>racle<span class="se">\V</span>irtualBox
+    C:<span class="se">\&gt;</span> VBoxManage modifyhd <span class="nt">--compact</span> <span class="s2">"C:</span><span class="se">\n</span><span class="s2">etreliant_VMs</span><span class="se">\l</span><span class="s2">inux_001.vdi"</span>
+</code></pre></div></div>
+
+<h2 id="once-the-virtualbox-vboxmanage-utility-is-running-you-will-see-progress-indicators-in-10-increments-starting-from-0-to-100-and-once-the-process-is-complete-you-should-have-a-smaller-disk-image-file">Once the VirtualBox VBoxManage utility is running you will see progress indicators in 10% increments starting from 0% to 100%. And once the process is complete, you should have a smaller disk image file</h2>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2018/04/24/How-to-setup-key-in-target-env/">How to setup key pair for Linux
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/10/24/Add-new-user/">Add new user
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/10/24/Add-new-user/">Add new user</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/10/24/Delete-WAS-profile/">Delete WAS profile</a></p>
+        
+    </div>
+</div>
+
+
+        <!-- <h2 id="comments">Comments1</h2> -->
+        <!-- 
+
+
+ -->
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <!-- <li><a href="#comments">Comments</a></li> -->
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             一寸欢喜 
+        </p>
+        <p class="contact">
+             
+            <a href="mailto:syeino@sina.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/syeino" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>       
+        </p>
+        <p>
+            本站访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，文章阅读<span id="busuanzi_value_page_pv"></span>次
+        </p>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

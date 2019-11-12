@@ -1,0 +1,87 @@
+I"¸<ul id="markdown-toc">
+  <li><a href="#get-the-nginx-image" id="markdown-toc-get-the-nginx-image">get the nginx image</a></li>
+  <li><a href="#install-confd" id="markdown-toc-install-confd">Install confd</a></li>
+  <li><a href="#create-the-confdir" id="markdown-toc-create-the-confdir">Create the confdir</a></li>
+  <li><a href="#create-a-template-resource-config" id="markdown-toc-create-a-template-resource-config">Create a template resource config</a></li>
+  <li><a href="#create-the-source-template" id="markdown-toc-create-the-source-template">Create the source template</a></li>
+  <li><a href="#setup-the-etcd-with-proper-value" id="markdown-toc-setup-the-etcd-with-proper-value">Setup the etcd with proper value</a></li>
+  <li><a href="#process-the-template" id="markdown-toc-process-the-template">Process the template</a></li>
+</ul>
+
+<h3 id="get-the-nginx-image">get the nginx image</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull nginx:stable
+</code></pre></div></div>
+
+<h3 id="install-confd">Install confd</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64
+mkdir -p /opt/confd/bin
+mv confd-0.14.0-linux-amd64 /opt/confd/bin/confd
+chmod +x /opt/confd/bin/confd
+export PATH="$PATH:/opt/confd/bin"  
+</code></pre></div></div>
+
+<h3 id="create-the-confdir">Create the confdir</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir -p /etc/confd/{conf.d,templates}  
+</code></pre></div></div>
+
+<h3 id="create-a-template-resource-config">Create a template resource config</h3>
+
+<p>Template resources are defined in TOML config files under the confdir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/confd/conf.d/myconfig.toml
+
+[template]
+src = "myconfig.conf.tmpl"
+dest = "/tmp/myconfig.conf"
+keys = [
+	"/myapp/database/url",
+	"/myapp/database/user",
+]
+</code></pre></div></div>
+
+<h3 id="create-the-source-template">Create the source template</h3>
+
+<p>Source templates are Golang text templates.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/confd/templates/myconfig.conf.tmpl
+
+[myconfig]
+database_url = {\{getv "/myapp/database/url"}\}
+database_user = {\{getv "/myapp/database/user"}\}
+NOTE: remove the "\" between the "{\{" or "}\}"
+</code></pre></div></div>
+
+<h3 id="setup-the-etcd-with-proper-value">Setup the etcd with proper value</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X PUT http://9.37.1.71:2379/v2/keys/myapp/database/url -d value="db.example.com"
+curl -X PUT http://9.37.1.71:2379/v2/keys/myapp/database/user -d value="rob"
+</code></pre></div></div>
+
+<h3 id="process-the-template">Process the template</h3>
+
+<p>confd supports two modes of operation daemon and onetime. In daemon mode confd polls a backend for changes and updates destination configuration files if necessary.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>confd -onetime -backend etcd -node http://9.37.1.71:2379/
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf out of sync
+2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf has been updated The dest configuration file should now be in sync.
+</code></pre></div></div>
+
+<p>cat /tmp/myconfig.conf</p>
+
+<p>Output:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># This a comment
+[myconfig]
+database_url = db.example.com
+database_user = rob
+</code></pre></div></div>
+
+<p>ref <a href="https://github.com/kelseyhightower/confd/blob/master/docs/quick-start-guide.md">https://github.com/kelseyhightower/confd/blob/master/docs/quick-start-guide.md</a></p>
+:ET

@@ -1,0 +1,67 @@
+I"<ul id="markdown-toc">
+  <li><a href="#how-to-permanently-disable-swap-in-linux" id="markdown-toc-how-to-permanently-disable-swap-in-linux">How to Permanently Disable Swap in Linux</a>    <ul>
+      <li><a href="#identify-configured-swap-devices-and-files" id="markdown-toc-identify-configured-swap-devices-and-files">Identify configured swap devices and files</a></li>
+      <li><a href="#issue-blkid-command-look-for-typeswap-line-in-order-to-identify-the-swap-partition" id="markdown-toc-issue-blkid-command-look-for-typeswap-line-in-order-to-identify-the-swap-partition">Issue blkid command, look for TYPE=”swap” line in order to identify the swap partition</a></li>
+      <li><a href="#issue-lsblk-command-to-search-and-identify-the-swap-partition" id="markdown-toc-issue-lsblk-command-to-search-and-identify-the-swap-partition">Issue lsblk command to search and identify the [SWAP] partition</a></li>
+      <li><a href="#execute-the-below-command-to-deactivate-the-swap-area" id="markdown-toc-execute-the-below-command-to-deactivate-the-swap-area">Execute the below command to deactivate the swap area.</a></li>
+      <li><a href="#run-free-command-in-order-to-check-if-the-swap-area-has-been-disabled" id="markdown-toc-run-free-command-in-order-to-check-if-the-swap-area-has-been-disabled">Run free command in order to check if the swap area has been disabled.</a></li>
+      <li><a href="#permanently-disable-swap" id="markdown-toc-permanently-disable-swap">Permanently disable swap</a></li>
+      <li><a href="#reboot" id="markdown-toc-reboot">Reboot</a></li>
+      <li><a href="#verify-the-result" id="markdown-toc-verify-the-result">Verify the result</a></li>
+      <li><a href="#optional" id="markdown-toc-optional">Optional:</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="how-to-permanently-disable-swap-in-linux">How to Permanently Disable Swap in Linux</h1>
+
+<h2 id="identify-configured-swap-devices-and-files">Identify configured swap devices and files</h2>
+
+<p><code class="highlighter-rouge">cat /proc/swaps</code></p>
+
+<p>Before actually disabling swap space, first you need to visualize your memory load degree and then identify the partition that holds the swap area, by issuing the below commands. Look for Swap space used size. If the used size is 0B or close to 0 bytes, it can be assumed that swap space is not used intensively and can be safety disabled.</p>
+
+<p><code class="highlighter-rouge"># free -h </code></p>
+
+<h2 id="issue-blkid-command-look-for-typeswap-line-in-order-to-identify-the-swap-partition">Issue blkid command, look for TYPE=”swap” line in order to identify the swap partition</h2>
+
+<p><code class="highlighter-rouge"># blkid </code></p>
+
+<h2 id="issue-lsblk-command-to-search-and-identify-the-swap-partition">Issue lsblk command to search and identify the [SWAP] partition</h2>
+
+<p><code class="highlighter-rouge"># lsblk</code></p>
+
+<h2 id="execute-the-below-command-to-deactivate-the-swap-area">Execute the below command to deactivate the swap area.</h2>
+
+<p><code class="highlighter-rouge"># swapoff /dev/mapper/centos-swap</code></p>
+
+<p>Or disable all swaps from /proc/swaps
+<code class="highlighter-rouge"># swapoff -a</code></p>
+
+<h2 id="run-free-command-in-order-to-check-if-the-swap-area-has-been-disabled">Run free command in order to check if the swap area has been disabled.</h2>
+
+<p><code class="highlighter-rouge"># free -h</code></p>
+
+<h2 id="permanently-disable-swap">Permanently disable swap</h2>
+
+<p>In order to permanently disable swap space in Linux, open /etc/fstab file, search for the swap line and comment the entire line by adding a # (hashtag) sign in front of the line, as shown in the below screenshot.</p>
+
+<p><code class="highlighter-rouge"># vi /etc/fstab</code></p>
+
+<h2 id="reboot">Reboot</h2>
+
+<p>Afterwards, reboot the system in order to apply the new swap setting or issuing mount -a command in some cases might do the trick.</p>
+
+<h2 id="verify-the-result">Verify the result</h2>
+
+<p>After system reboot, issuing the commands presented in the beginning of this tutorial should reflect that the swap area has been completely and permanently disabled in your system.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># free -h</span>
+<span class="c"># blkid </span>
+<span class="c"># lsblk </span>
+</code></pre></div></div>
+
+<h2 id="optional">Optional:</h2>
+
+<p>Destroy any swap devices or files found in step 1 to prevent their reuse. Due to your concerns about leaking sensitive information, you may wish to consider performing some sort of secure wipe.</p>
+:ET
