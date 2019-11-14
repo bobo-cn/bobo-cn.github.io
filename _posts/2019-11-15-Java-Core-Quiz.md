@@ -13,7 +13,7 @@ author: Bo Chen
 
 ## 手写以下代码，请确保关键知识点正确
 
-1. 一个Employee类，要求有constructor, instance fields and methods
+* 一个Employee类，要求有constructor, instance fields and methods
 
 ``` java
 class Employee{
@@ -35,7 +35,7 @@ class Employee{
 }
 ```
 
-2. 一个静态方法，并且调用它
+* 一个静态方法，并且调用它
 
 ``` java
 class Util{
@@ -51,7 +51,7 @@ class Test{
 }
 ```
 
-3. 假设已有Employee类，创建一个继承Employee类的Manager类，
+* 假设已有Employee类，创建一个继承Employee类的Manager类，
 
 ``` java
 class Employee{
@@ -63,7 +63,7 @@ class Manager extends Employee{
 }
 ```
 
-4. 强制类型转换，强制将一个Employee对象，转换为Manager对象
+* 强制类型转换，强制将一个Employee对象，转换为Manager对象
 
 ``` java
 if (employee instanceof Manager){
@@ -71,7 +71,7 @@ if (employee instanceof Manager){
 }
 ```
 
-5. 一段try-catch-finally语句
+* 一段try-catch-finally语句
 
 ``` java
 try{
@@ -84,7 +84,7 @@ try{
 
 ```
 
-6. 一个包含抽象方法的抽象类以及一个继承它的类
+* 一个包含抽象方法的抽象类以及一个继承它的类
 
 ``` java
 public abstract class AbstractEmployee {
@@ -104,7 +104,7 @@ public class Employee extends AbstractEmployee {
 
 ```
 
-7. 一个interface以及一个实现它的类
+* 一个interface以及一个实现它的类
 
 ``` java
 public interface EmployeeInterface {
@@ -124,7 +124,7 @@ public class EmployeeImp implements EmployeeInterface {
 
 ```
 
-8. 一个lambda来计算两个String的长度差
+* 一个lambda来计算两个String的长度差
 
 ``` java
 String[] players = {"Rafael Nadal", "Novak Djokovic", "Stanislas Wawrinka", "David Ferrer", "Roger Federer", "Andy Murray",
@@ -133,11 +133,11 @@ Arrays.sort(players,(String s1, String s2) -> s1.length() - s2.length() );
 Arrays.stream(players).forEach(System.out::println);
 ```
 
-9. 使用java命令来运行jar文件
+* 使用java命令来运行jar文件
 
 `java -jar aaa.jar`
 
-10.使用Hashmap用来保存Employee对象。并且实现1）将Employee和对应员工号（SN）放入map，并且2）使用SN来取得Employee
+* 使用Hashmap用来保存Employee对象。并且实现1）将Employee和对应员工号（SN）放入map，并且2）使用SN来取得Employee
 
 ``` java
 Map<String, Employee> employeeMap = new HashMap<String, Employee>(4);
