@@ -15,7 +15,7 @@ author: Bo Chen
 
 1. 一个Employee类，要求有constructor, instance fields and methods
 
-``` Java
+``` java
 class Employee{
   // instance fields
   private String name ;
@@ -37,7 +37,7 @@ class Employee{
 
 2. 一个静态方法，并且调用它
 
-``` Java
+``` java
 class Util{
     public static int getCount(){
         return 100;
@@ -53,7 +53,7 @@ class Test{
 
 3. 假设已有Employee类，创建一个继承Employee类的Manager类，
 
-``` Java
+``` java
 class Employee{
     //something here
 }
@@ -65,7 +65,7 @@ class Manager extends Employee{
 
 4. 强制类型转换，强制将一个Employee对象，转换为Manager对象
 
-``` Java
+``` java
 if (employee instanceof Manager){
   Manager boss = (Manager) employee;
 }
@@ -73,7 +73,7 @@ if (employee instanceof Manager){
 
 5. 一段try-catch-finally语句
 
-``` Java
+``` java
 try{
   System.out.println("hello world");
   } catch (Exception e){
@@ -86,7 +86,7 @@ try{
 
 6. 一个包含抽象方法的抽象类以及一个继承它的类
 
-``` Java
+``` java
 public abstract class AbstractEmployee {
     /**
      * This is for demo the abstract method
@@ -106,7 +106,7 @@ public class Employee extends AbstractEmployee {
 
 7. 一个interface以及一个实现它的类
 
-``` Java
+``` java
 public interface EmployeeInterface {
     /**
      * Show interface
@@ -126,7 +126,7 @@ public class EmployeeImp implements EmployeeInterface {
 
 8. 一个lambda来计算两个String的长度差
 
-``` Java
+``` java
 String[] players = {"Rafael Nadal", "Novak Djokovic", "Stanislas Wawrinka", "David Ferrer", "Roger Federer", "Andy Murray",
 "Tomas Berdych", "Juan Martin Del Potro","Richard Gasquet", "John Isner"};
 Arrays.sort(players,(String s1, String s2) -> s1.length() - s2.length() );
@@ -139,7 +139,7 @@ Arrays.stream(players).forEach(System.out::println);
 
 10.使用Hashmap用来保存Employee对象。并且实现1）将Employee和对应员工号（SN）放入map，并且2）使用SN来取得Employee
 
-``` Java
+``` java
 Map<String, Employee> employeeMap = new HashMap<String, Employee>(4);
 Employee emp = new Employee("my name");
 System.out.println(emp);
