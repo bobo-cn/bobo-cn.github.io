@@ -46,7 +46,7 @@ class Util{
 
 class Test{
     public static void main(){
-      System.out.println(util.getCount());
+      System.out.println(Util.getCount());
     }
 }
 ```
