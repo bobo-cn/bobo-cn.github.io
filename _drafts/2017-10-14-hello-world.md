@@ -13,7 +13,7 @@ author: Bo Chen
 
 This is my first blog. Hello World!
 
-scp -i ~/filename chenbo@hostname:~/kubectl.exe .
+scp -i ~/filename username@hostname:~/kubectl.exe .
 
 
 vim /etc/bashrc
