@@ -26,13 +26,9 @@ author: Bo Chen
   
 ``` shell
 systemctl enable v2ray
-
 systemctl start v2ray
-
 systemctl status v2ray
-
 systemctl stop v2ray
-
 systemctl restart v2ray
 ```
 
