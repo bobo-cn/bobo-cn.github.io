@@ -30,3 +30,4 @@ In order to delete the history of the git commit and make it the branch new repo
 
 * Push to remote branch  
   `git push -f origin master`
+  
