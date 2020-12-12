@@ -15,7 +15,6 @@ This is my first blog. Hello World!
 
 scp -i ~/filename username@hostname:~/kubectl.exe .
 
-
 vim /etc/bashrc
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0
