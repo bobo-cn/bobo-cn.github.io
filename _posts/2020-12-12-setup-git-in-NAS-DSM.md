@@ -2,7 +2,7 @@
 layout: post
 title:  "Setup SSH and git in NAS"
 categories: NAS
-tags:  NAS, SSH, Git, DSM
+tags:  SSH, Git, DSM, Linux
 excerpt: null
 mathjax: true
 author: Bo Chen
