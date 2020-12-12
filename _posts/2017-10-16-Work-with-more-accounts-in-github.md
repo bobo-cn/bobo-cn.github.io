@@ -9,14 +9,14 @@ author: Bo Chen
 * content
 {:toc}
 
-# Cancel the global setting
+### Cancel the global setting
 
 ```bash
     git config --global --unset user.name
     git config --global --unset user.email
 ```
 
-# Setup the user.email for each repo
+### Setup the user.email for each repo
 
 ```bash
     git config  user.email "xxxx@xx.com"
