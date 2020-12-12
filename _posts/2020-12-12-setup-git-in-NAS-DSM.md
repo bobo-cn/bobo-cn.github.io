@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Setup SSH and git in NAS"
-categories: Miscellaneous
-tags:  Misc
+categories: NAS
+tags:  NAS SSH Git DSM
 excerpt: null
 mathjax: true
 author: Bo Chen
@@ -42,6 +42,9 @@ author: Bo Chen
 ## Install the git server
 
 * Launch the Git package. Select users to provide them with the ability to check in and check out files from the repository.
+  * If the panel is blank, try following
+    * `sudo vi /var/packages/Git/target/webapi/SYNO.Git.lib`
+    * delete the content within appPriv: -> "appPriv": ""
 * Log into your Synology server via SSH as root or admin.
 * Change directory to /volumeX, where X is the volume number, to create a folder. For example, "git_repos". The permission of the folder will be the same as Linux.
   * You can also do it in web console
