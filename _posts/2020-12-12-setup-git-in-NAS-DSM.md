@@ -11,7 +11,7 @@ author: Bo Chen
 * content
 {:toc}
 
-## Setup SSH and make it pubkey authenticate
+### Setup SSH and make it pubkey authenticate
 
 * Config a host alia nas.local
   * `vi /etc/hosts`
@@ -39,7 +39,7 @@ author: Bo Chen
     * run from nas: `sudo /bin/sshd -d -p 1234`
     * run from local: `ssh user@nas.local -p 1234`
 
-## Install the git server
+### Install the git server
 
 * Launch the Git package. Select users to provide them with the ability to check in and check out files from the repository.
   * If the panel is blank, try following
