@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Java Core Quiz - Entrance Level 1"
-categories: Java Program
+categories: Java
 tags:  Java Quiz
 excerpt: null
 mathjax: true
