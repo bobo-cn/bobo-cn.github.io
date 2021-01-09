@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Install V2Ray in CentOS"
-categories: Miscellaneous
-tags:  Misc
+categories: Network
+tags:  Firewall
 excerpt: null
 mathjax: true
 author: Bo Chen

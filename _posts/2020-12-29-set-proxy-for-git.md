@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Set proxy for git"
-categories: Miscellaneous
-tags:  Misc
+categories: Network
+tags:  Firewall Git
 excerpt: null
 mathjax: true
 author: Bo Chen

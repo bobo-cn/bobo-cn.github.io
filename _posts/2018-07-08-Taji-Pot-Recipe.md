@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "塔吉锅菜谱"
-categories: Miscellaneous
-tags:  Misc
+categories: Recipe
+tags:  Taji-pot Recipe
 excerpt: null
 mathjax: true
 author: Bo Chen

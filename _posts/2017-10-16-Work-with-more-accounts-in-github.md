@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Work with more accounts in Github"
-categories: Miscellaneous
+categories: Tool
 tags:  git
 author: Bo Chen
 ---

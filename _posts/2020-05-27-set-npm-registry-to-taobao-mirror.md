@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Set npm registry to TaoBao mirror"
-categories: Miscellaneous
-tags:  npm
+categories: Tool
+tags:  npm Firewall
 excerpt: null
 mathjax: true
 author: Bo Chen

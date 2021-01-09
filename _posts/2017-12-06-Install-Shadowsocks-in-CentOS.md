@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Install Shadowsocks in CentOS"
-categories: Miscellaneous
-tags:  Misc
+categories: Network
+tags:  Firewall Linux
 excerpt: null
 mathjax: true
 author: Internet

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Remove history from github"
-categories: Miscellaneous
+categories: Tool
 tags:  git
 excerpt: null
 mathjax: true

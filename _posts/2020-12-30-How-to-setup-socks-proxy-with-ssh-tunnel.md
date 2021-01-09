@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "How to setup socks proxy with ssh tunnel"
-categories: Miscellaneous
-tags:  Misc
+categories: Network
+tags:  Firewall
 excerpt: null
 mathjax: true
 author: Bo Chen
