@@ -54,3 +54,11 @@ author: Bo Chen
   * `git clone ssh://[Git users]@[Your Synology server's IP address or hostname]/[Git repository path]`
     * `git clone ssh://user@nas.local/volume1/git/test1.git`
     * ensure it starts from **ssh://**
+    * You can also use the scp like style `git clone [git_user]@nas.local:/volume1/git/helloworld.git`
+    * If you are using a port other than 22, update following
+      * `vi ~/.ssh/config`
+
+      ``` bash
+      Host nas.local
+      Port 1234
+      ```
