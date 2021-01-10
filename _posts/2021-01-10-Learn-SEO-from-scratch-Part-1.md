@@ -74,7 +74,7 @@ Search engine optimization (SEO) is the process of improving the quality and qua
 
 * The max length of title is approx. 60-70 characters.
 * The title should include the core keywords. But not too much.
-* Use "|", ",", "-" or "_" to separate the keyword
+* Use "\|", ",", "-" or "_" to separate the keyword
 * <https://ahrefs.com/blog/title-tag-seo/>
 
 ### Description
