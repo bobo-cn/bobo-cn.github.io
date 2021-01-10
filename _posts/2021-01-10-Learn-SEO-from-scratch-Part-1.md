@@ -45,7 +45,7 @@ Search engine optimization (SEO) is the process of improving the quality and qua
 * TDK: Title, Description and Keyword
 * Link
   * Internal link: Internal links are hyperlinks that direct the reader to a target page on your website
-  * External link: External links point from one domain to an entirely separate domain. 
+  * External link: External links point from one domain to an entirely separate domain.
   * Link exchange
 * Impression: An impression is counted when a list item is visible in the short list view, and also when the list view is expanded, whether or not the item is actually scrolled into view. Therefore, if an item is visible in the short view and the user then clicks to expand the list, two impressions are counted.
 * CPC: Cost Per Click. CPC refers to the cost an advertiser pays each time an online user clicks on his or her digital ad. This value is determined by dividing the cost of the marketing campaign by the total number of clicks. In PPC campaigns, advertisers can lower their CPC by using smart bidding strategies, and by improving the quality of their ads and landing pages.
