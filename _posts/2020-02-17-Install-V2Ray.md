@@ -20,7 +20,7 @@ author: Bo Chen
 
 * Download and install from the script.
 
-  * `bash <(curl -L -s https://install.direct/go.sh)`
+  * `# bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)`
 
 * Set it running as service.
   
@@ -34,9 +34,11 @@ systemctl restart v2ray
 
 * Check the configuration
 
-  `cat /etc/v2ray/config.json`
+  * Sample https://github.com/v2fly/v2ray-examples
 
-  * you can also check the console output during the script running
+  * Check the console output during the script running for the config file name
+  
+  * Another way to find the config file name `systemctl status v2ray`
 
 * Setup the client
   
